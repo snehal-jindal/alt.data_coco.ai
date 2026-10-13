@@ -1,0 +1,83 @@
+{
+  "plan_gis_rows": 510,
+  "unique_plan_applications": 510,
+  "plan_duplicate_rows": 0,
+  "plan_conflicting_guids": [],
+  "unique_parcel_associated_permits": 6858,
+  "explicit_dc_keyword_permits": 1167,
+  "parcels_with_dc_keyword": 140,
+  "mechanical_permits_at_seed_parcels": 454,
+  "mechanical_with_dc_keyword": 61,
+  "invalid_application_dates": 1,
+  "issue_before_application_timestamp": 38,
+  "issue_before_application_day": 22,
+  "permit_cross_feed_conflicts": [],
+  "permit_types": {
+    "Electrical (Commercial)": 2401,
+    "Zoning (Commercial)": 1129,
+    "Building (Commercial)": 725,
+    "Elevator Maintenance": 220,
+    "Fire Protection (Commercial)": 1208,
+    "Mechanical (Commercial)": 454,
+    "Plumbing (Commercial)": 369,
+    "FMO - Moderate/High Hazard": 44,
+    "Grading": 60,
+    "VESMP": 68,
+    "Health Well Permit": 45,
+    "Electrical (Residential)": 46,
+    "Elevator Construction (Commercial)": 49,
+    "Plumbing (Residential)": 7,
+    "Health Hydrogeologic Report": 1,
+    "Building (Residential)": 5,
+    "Zoning (Residential)": 3,
+    "Health Consumer Service Fees": 1,
+    "FMO - Fire Lane": 5,
+    "Health Sewage System": 13,
+    "FMO - General/Low Hazard": 1,
+    "Gas (Commercial)": 2,
+    "Legacy Health Addition Check": 1,
+    "FMO - Explosive": 1
+  },
+  "plan_types": {
+    "Zoning Map Amendment": 22,
+    "Legislative Application": 20,
+    "Engineering Plan": 248,
+    "Zoning Correspondence": 38,
+    "Zoning Ordinance Amendment": 4,
+    "Plat": 55,
+    "Performance Bond": 12,
+    "GIS Update": 5,
+    "Special Exception": 49,
+    "Building and Development Correspondence": 7,
+    "Grading Bond": 4,
+    "Floodplain": 19,
+    "Comprehensive Plan Amendment": 2,
+    "Premeeting": 3,
+    "Zoning Modification": 3,
+    "Zoning Concept Plan Amendment": 4,
+    "Planning Correspondence": 11,
+    "Commission Permit": 3,
+    "Appeal": 1
+  },
+  "date_ranges": {
+    "application_date_utc": {
+      "min": "2000-08-17T04:00:00+00:00",
+      "max": "2026-10-12T18:31:51+00:00",
+      "missing": 1
+    },
+    "issue_date_utc": {
+      "min": "1992-02-24T05:00:00+00:00",
+      "max": "2026-10-09T11:05:05+00:00",
+      "missing": 175
+    },
+    "snapshot_date_utc": {
+      "min": "2026-10-13T11:30:01+00:00",
+      "max": "2026-10-13T11:30:01+00:00",
+      "missing": 0
+    }
+  },
+  "rfq_labels": 0,
+  "verified_historical_publication_dates": 0,
+  "predictive_backtest_ready": false,
+  "warning": "Current snapshots. Parcel association is not building-level matching. Permit events are not purchases."
+}
