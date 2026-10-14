@@ -31,8 +31,8 @@ Filtering is implemented; incremental discovery timing and sales value are unpro
 ## Read first
 
 - [Plain-English explanation](reports/midterm_walkthrough.md): complete current story.
-- [Current presentation structure](reports/midterm_slide_structure.md): twelve
-  slides for eight minutes with matching speaker notes and source links.
+- [Current presentation structure](reports/midterm_slide_structure.md): eleven
+  main slides for eight minutes, one skipped backup, matching speaker notes and source links.
 - [Midterm presentation](https://docs.google.com/presentation/d/16yxMeZ2Dwdd8IzQ9tnGfU3xiDa9a28AADcd5fszQ4rA): Google Slides deck.
 - [Source register](data/curated/dated_sources.csv): links, dates and their limits.
 - [Results](data/processed/early_notice_summary.json): reproducible numbers.

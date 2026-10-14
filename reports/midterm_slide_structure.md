@@ -1,242 +1,150 @@
-# Coco.ai: twelve-slide written midterm structure
+# Coco.ai: midterm presentation and speaker notes
 
-Slide-by-slide research narrative and speaker notes for the midterm presentation.
-[Google Slides deck](https://docs.google.com/presentation/d/16yxMeZ2Dwdd8IzQ9tnGfU3xiDa9a28AADcd5fszQ4rA).
-Planned narration: 7 minutes 40 seconds, leaving 20 seconds within an eight-minute slot.
-The code/source checks are complete; independent and commercial validation remain gaps.
+[Google Slides deck](https://docs.google.com/presentation/d/16yxMeZ2Dwdd8IzQ9tnGfU3xiDa9a28AADcd5fszQ4rA)
 
-## Slide 1 — Coco.ai: Which projects deserve your next call? — 25 seconds
+Eleven main slides, followed by one skipped backup. The speaking script is about seven minutes at a moderate pace. Expanded explanations are reference material, not additional narration.
 
-On slide: Public development records → supplier investigation.
-Cooling suppliers. Loudoun County, Virginia.
+## 1. Coco.ai: which projects deserve a cooling supplier’s next call?
 
-Visual: one restrained illustration of project information reaching a salesperson.
+SAY
+Imagine you sell commercial cooling equipment. Someone proposes building a data center, and you want to know whether that project deserves your attention. Coco.ai would use public development information to help you choose which projects to investigate. For this midterm, I focused on new data-center buildings and substantial physical expansions in Loudoun County, Virginia. I asked how early the information appears and whether the projects progress. Eventually, I want to understand when a supplier should approach them and what equipment fits, but those are later questions.
 
-Speaker notes: “Imagine you sell commercial cooling equipment. Someone proposes
-a data center, and you want to know whether that project deserves your attention.
-Coco.ai's original idea was to repurpose public information for that sales
-decision. I narrowed the midterm to new data-center buildings and substantial
-physical expansions in Loudoun County. Two things matter: how early the signal
-appears, and whether it points to projects that actually progress.”
+SOURCES
+Coco.ai research concept and scope.
 
-Footer: Original project concept and Coco.ai research scope.
+## 2. I started with the county’s building records
 
-## Slide 2 — Step 1: Collect the county's construction paperwork — 40 seconds
+SAY
+I started with official county planning and permit records containing dates, identifiers and descriptions. I downloaded them in October 2026. The broad permit collection includes application dates from 2000 to 2026. I removed repeated permit IDs and flagged unusable dates, then selected 407 commercial-building filings from 2023 to 2025 for a manageable description audit. Those years were a practical starting point. This was data preparation and exploration, rather than a statistical training dataset.
 
-On slide: Official planning and permit records / Collected October 13, 2026 /
-407 building filings in the initial audit.
+SOURCES
+https://logis.loudoun.gov/gis/rest/services/Projects/LOLA_DATA/MapServer/0
+https://github.com/snehal-jindal/alt.data_coco.ai
 
-Visual: planning records + building permits → cleaned table. Small progress line:
-Idea → collected data → working research code.
+## 3. The filing date did not solve the timing problem
 
-Speaker notes: “Companies submit government paperwork to seek development or
-construction permission. I downloaded official county records containing dates,
-identifiers and descriptions. The broad permit collection spans application dates
-from 2000 to 2026. I removed repeated permit IDs and flagged unusable dates. I then
-selected 407 commercial-building filings from 2023–2025 for a manageable first
-description audit. Those years were a practical choice, not a proven forecasting
-period. That audit is supporting work, not a training dataset.”
+SAY
+Then I encountered a timing problem. The records contain historical application dates, but I downloaded their current descriptions in 2026. Imagine a 2024 filing originally saying construct a building, then changing in 2026 to say construct a data center. Recognizing the data center now would not prove we could recognize it in 2024. This is an illustrative example, not a recovered pair of document versions. I kept the 407-record exercise as background and looked for a source with a clear issue date.
 
-Footer: Loudoun County planning/permit APIs; Coco.ai source audit.
+SOURCES
+https://github.com/snehal-jindal/alt.data_coco.ai
 
-## Slide 3 — Step 2: An old application can contain newer information — 35 seconds
+## 4. A dated newsletter gave us a smaller test
 
-On slide: Application date ≠ date of the description we downloaded.
-Current descriptions cannot prove an earlier warning.
+SAY
+I used an Ashburn District newsletter dated January 26, 2024. The county supervisor publishes it for residents, with community news and development proposals. It contains 16 development-application entries, including housing and data-center proposals. I manually prepared the project facts with AI assistance. That gives us a small, dated starting point: if a cooling salesperson read this issue, which entries would deserve investigation? The issue date is our availability proxy; original delivery and first versions still need verification.
 
-Visual: clearly illustrative 2024 application → 2026 edit/download.
+SOURCES
+https://myemail.constantcontact.com/Ashburn-District-Newsletter---January-26th--2024.html?aid=_M6Nr9sPRk8&soid=1133733712698
 
-Speaker notes: “The first major challenge was historical timing. A filing submitted
-in 2024 can contain a description revised in 2026. Recognizing a data center in
-that later text does not prove a salesperson could recognize it in 2024. I kept
-the 407-record exercise for description sorting, but did not use it to claim
-historical early detection. I moved the timing pilot to dated documents. Original
-versions and posting or delivery dates still need verification.”
+## 5. A data-center mention needed a second look
 
-Footer: Coco.ai source audit. Example labeled illustrative.
+SAY
+First, I used a basic filter: does the entry mention a data center? Six did. Then I checked what each application actually proposed and its reported stage. Three described proposed DC buildings to investigate. One needed review, one already had approval, and one was a residential application referring to a different DC proposal. A careful reader could do this manually. The code makes that sorting repeatable using the facts I prepared. It does not automatically read websites. The possible value is maintaining useful context across many documents, which still needs testing.
 
-## Slide 4 — Step 3: Examine a dated local update — 40 seconds
+SOURCES
+https://myemail.constantcontact.com/Ashburn-District-Newsletter---January-26th--2024.html?aid=_M6Nr9sPRk8&soid=1133733712698
+https://github.com/snehal-jindal/alt.data_coco.ai
 
-On slide: Ashburn District newsletter / January 26, 2024 / 16 development entries.
-Community news containing development proposals.
+## 6. The notice was early. The news was earlier.
 
-Visual: genuine issue heading and the three facts.
+SAY
+For Belmont, I reconstructed the dates rather than just counting mentions. Our January newsletter appears 75 days before planning approval. An older county notice gives 427 days. But industry news already described the campus 552 days before approval, 125 days ahead of the county notice. Public documents therefore provided advance notice, but finding the name first is not the advantage demonstrated here. The useful lesson is to compare against information a supplier already has. The next question is whether official scope or stage information adds something that changes the supplier’s investigation.
 
-Speaker notes: “This newsletter comes from the Ashburn supervisor's office. Its
-audience is residents, and it covers roads, community news and development.
-It is not mainly about data centers. I used one accessible dated issue containing
-sixteen application entries. January 2024 was a convenient pilot, not a special
-commercial date. I used AI assistance to read the entries and record their purpose, application identifier,
-reported stage and source. This preparation was manual and AI-assisted. The stated
-issue date is our availability proxy; original delivery is not independently verified.”
+FOR YOUR UNDERSTANDING
+WHY THIS RESULT MATTERS
+The timing test protects against building a product around information that customers already possess. It gives a baseline more demanding than merely showing that a document preceded approval. The October 6, 2022 DCD article is an ordinary public-information comparator, not a measured DC Byte alert. The recovered county notice is February 8, 2023, while the fixed screening issue is January 26, 2024. All three refer to the same campus proposal, allowing the comparison with April 10, 2024 planning approval. Notice days equal approval date minus source date. We have not authenticated first versions or original delivery logs, and cannot claim earliest-ever discovery.
 
-Footer: Ashburn District newsletter, January 26, 2024.
+POSSIBLE VALUE TO TEST
+A project name may already be known. A supplier might still need a dated change in scope, approval status, project identity or a reason to investigate. Public records could contribute to that context. This case does not prove that they do, and we have not measured which additional facts the news article or an incumbent already supplied. Planning approval also does not establish an open cooling purchase window. The next test should ask whether a specific update changes a real supplier action rather than seeking more impressive lead-day numbers.
 
-## Slide 5 — Step 4: Compare a basic filter with scope and stage rules — 50 seconds
+SOURCES
+https://www.datacenterdynamics.com/en/news/sdc-capital-partners-planning-data-center-campus-in-belmont-virginia/
+https://www.loudoun.gov/Archive.aspx?ADID=12779
+https://myemail.constantcontact.com/Ashburn-District-Newsletter---January-26th--2024.html?aid=_M6Nr9sPRk8&soid=1133733712698
+https://www.loudoun.gov/ArchiveCenter/ViewFile/Item/13812
 
-On slide: 16 inspected → 6 DC mentions → 3 investigate.
-Other baseline entries: 1 review / 1 already approved / 1 different application.
+## 7. The shortlist revealed different project situations
 
-Visual: six baseline entries split into four groups; numbers sum to six.
+SAY
+I then followed up all three shortlisted projects. Belmont has planning approval and a contractor reporting a finishing-and-sealants scope. Landbay KK has reported conditional site-plan approval. CyrusOne remains a described proposal in the sources I recovered. These are three different situations, so a useful list should show the evidence and the next question for each project. For Belmont, check the current scope and procurement stage. For Landbay, check the remaining conditions. For CyrusOne, monitor the proposal’s status. Those are suggested investigation actions. We still need dated construction evidence to test which signals reliably lead to physical progress.
 
-Speaker notes: “The baseline flags any entry mentioning data-center use: six
-entries. Our rules examine the actual proposal and stage. Three explicitly concern
-proposed DC buildings awaiting a decision: Belmont Innovation Campus, CyrusOne
-Broadlands and Belmont Landbay KK. The others are mixed-use permission needing
-review, an already-approved DC project, and a residential application referring
-to another DC proposal. The code sorts facts I prepared; it does not read new
-websites automatically. These are written instructions, with no statistical
-training. Both filters find the same three projects on the same issue date.”
+FOR YOUR UNDERSTANDING
+WHAT WE ACTUALLY RECOVERED
+Belmont Innovation Campus: county planning approval plus Sparkle Painting’s public self-report of a finishing/sealants scope. The contractor update is an additional supplier-side clue, but its exact post/event date was not recovered and it does not confirm completed construction. Belmont Landbay KK: a November 3, 2025 Ashburn newsletter reports conditional site-plan approval on October 6, 2025. Conditional approval is a different milestone from full approval or construction. CyrusOne Broadlands: an October 11, 2026 Broad Run bulletin still describes the proposal and discussions, without confirming physical construction.
 
-Footer: January 26 newsletter; dated_projects.csv; early_notice_screening.csv.
+VALUE AND LIMIT
+The pilot connects a shortlist to source-linked project context and exposes where further investigation is needed. The next-question column on the slide is a proposed use of that context, not an observed customer response. We have not verified physical starts/completions for these three under the current standard. Unknown does not mean failed. There is no defensible construction success rate, precision or recall yet. To evaluate quality, recover dated evidence, independently match it to the right project/building, and track both shortlisted and comparison candidates to a common cutoff. Precision needs resolved alert outcomes with unknowns reported separately. Recall additionally needs a sufficiently complete set of relevant projects that could have been missed.
 
-## Slide 6 — Step 5: Change the watchlist when the evidence changes — 45 seconds
+SOURCES
+https://www.loudoun.gov/ArchiveCenter/ViewFile/Item/13812
+https://www.linkedin.com/company/sparkle-painting-co.-inc.
+https://myemail.constantcontact.com/Ashburn-District--October-Wrap-Up-Flyer---.html?aid=DFYPIm4LYSI&soid=1133733712698
+https://myemail.constantcontact.com/Broad-Run-Bulletin---October-2026.html?aid=VjdCYNcS0uo&soid=1133737022011
 
-On slide: Belmont / Investigate → Review revised proposal → Approval reported.
-Document dates: Feb 8, 2023 → Mar 22, 2024 → Apr 11, 2024.
+## 8. DC Byte shows why industry evidence matters
 
-Visual: three states; distinguish the April 10 vote from the April 11 reporting document.
+SAY
+DC Byte helps explain why useful sales intelligence takes more than collecting documents. It says its analysts conduct facility reviews, market inspections, primary research and direct industry engagement. Its supplier product already offers project alerts, stage filters and supplier relationships. Our use case overlaps. The implication for Coco is that public documents can supply a traceable starting point, while supplier or developer conversations may be needed to understand the actual opportunity. That is a direction to test, not a proven gap in DC Byte. Our alpha would be information that changes a supplier’s action, and we have not measured it yet.
 
-Speaker notes: “I also implemented a dated update replay. Belmont starts as a
-pending proposal to investigate. A March 22 release reports an initial denial
-and subsequent reconsideration, so the code asks for review of the revised
-proposal. The April 11 release reports approval, so it moves to a later stage.
-The code does not backdate that update to the April 10 vote. Repeated notices
-are not new discoveries. This demonstrates update handling, not sales performance.
-Already approved does not necessarily mean too late to sell.”
+FOR YOUR UNDERSTANDING
+WHAT DC BYTE SAYS
+Its FAQ describes a global research team, facility reviews, market inspections, primary research and direct industry engagement, with ongoing review and validation. Supplier Analytics advertises alerts on new or expanding facilities, project-stage and supplier-segment filters, supplier relationships and project prioritization. These are provider descriptions, not independently measured product performance. We did not purchase its data or compare its actual alerts against ours.
 
-Footer: County February 8 newsletter, March 22 and April 11 releases;
-watchlist_update_replay.csv. Publisher dates used as proxies.
+WHAT THAT MEANS FOR COCO
+The overlap is substantial. A simple public-document shortlist is not a demonstrated competitive advantage. My inference is that primary research can help fill the gap between a recorded development proposal and a supplier’s actual commercial decision. We need conversations to establish which facts are useful, available and underserved. Public evidence plus industry evidence is a possible research design, not a claim of novelty.
 
-## Slide 7 — Test 1: Was the signal early—and earlier than news? — 55 seconds
+DEFINE ALPHA IN THIS PROJECT
+Alpha means an incremental decision advantage: discovering an actionable opportunity earlier than the customer’s baseline, reducing investigation time without losing important projects, or supplying an update that changes whom the seller contacts, when or why. None has been validated commercially. Potential positioning such as a narrower cooling workflow, simpler evidence review or a different customer segment must emerge from research. We have not established lower cost, better coverage or a feature gap. Customer interviews have not been conducted.
 
-On slide: Days before Belmont planning approval:
-Recovered county notice: 427 / Recovered industry article: 552.
-Industry news was 125 days earlier.
+SOURCES
+https://www.dcbyte.com/faq/
+https://www.dcbyte.com/us/supplier-analytics/
 
-Visual: two bars or a timeline ending at April 10, 2024 approval.
+## 9. The feedback pushed me toward a clearer test
 
-Speaker notes: “Notice time is approval date minus notice date. The main January
-issue is seventy-five days before Belmont's approval. Looking further back,
-a recovered February 2023 county notice is four hundred and twenty-seven days
-before approval. But an industry article is dated October 2022: five hundred and
-fifty-two days before approval. It is earlier by one hundred and twenty-five days.
-This case therefore shows advance notice but no discovery advantage over news.
-These are recovered publisher dates, not proof of the earliest mention anywhere.
-We measured planning approval, not construction completion or a purchase.”
+SAY
+The peer feedback asked for a clearer signal, an explanation of metric validation, and a comparison with existing products. I have narrowed the signal to a proposed DC project worth investigating, separated notice timing from physical progress, and made the DC Byte overlap explicit. The next version should be judged by whether a supplier finds the evidence useful in a real decision.
 
-Footer: County February 8, 2023 newsletter; April 11, 2024 release; DCD October 6,
-2022 article; early_notice_summary.json. Small selected case; date assumptions apply.
+FOR YOUR UNDERSTANDING
+FEEDBACK CONNECTION
+The actual comments asked for greater clarity about the signal/narrative, how to validate the final metric and comparison with existing products. On-slide phrases are shortened paraphrases. This presentation addresses them through a single supplier decision, a chronological account of the work, separate timing and progress tests, and explicit competitor overlap. It does not invent customer feedback or claim that newly supplied Plause comments caused all prior research.
 
-## Slide 8 — Test 2: Did the shortlisted projects actually progress? — 50 seconds
+SOURCES
+Attached Plause peer-feedback screenshot.
 
-On slide:
-Belmont Innovation — approval + contractor scope reported.
-Landbay KK — conditional site-plan approval.
-CyrusOne Broadlands — proposal described; physical outcome unresolved.
-Construction/completion quality: not yet validated.
+## 10. Next: test whether the evidence changes a sales decision
 
-Visual: three-row evidence table; no green “built” checkmarks or success percentage.
+SAY
+The next step is a small test of one cooling supplier’s actual workflow. First, independently check the project matches, dates and extracted facts. Then follow shortlisted and comparison projects to the same cutoff, using dated construction evidence and keeping unknown outcomes separate. Freeze the rules before testing more documents. In parallel, ask suppliers what they already know, when outreach matters, and which missing facts prevent action. Compare review time and decisions with their current process. Continue if the evidence improves a decision, add industry research if that is the missing piece, or change the use case if existing tools already solve it.
 
-Speaker notes: “You also need to check signal quality: do the projects actually
-progress? I followed up all three investigation items. Belmont has approval
-evidence and a contractor reporting a finishing-and-sealants scope. Landbay KK
-has conditional site-plan approval reported in 2025. CyrusOne remains a described
-proposal in recovered sources. None of these establishes a verified construction
-start or completion under our evidence standard. That means unresolved outcomes,
-not three failures. We cannot calculate construction precision or recall yet.
-Approval, contractor engagement and a completed building are different evidence.”
+FOR YOUR UNDERSTANDING
+A SMALL, COMPLETE NEXT EXPERIMENT
+Select one supplier decision with a cooling salesperson, such as which existing project warrants investigation this week. Record their current sources, known projects, criteria and usual review time before showing Coco’s results. Independently review a manageable new set of dated documents, preserve source versions and availability dates where possible, and match repeated application/building references. Freeze the sorting rules, then apply them before inspecting later outcomes. Include shortlisted and comparison candidates, not just projects that are easy to confirm.
 
-Footer: County approval release; Sparkle Painting public company update; November
-3, 2025 Ashburn newsletter; October 11, 2026 Broad Run bulletin; quality_followup.csv.
-Checked October 14, 2026. Exact contractor post date not recovered.
+FOLLOW THE EVIDENCE
+Track each candidate to the same date. Collect construction-start, occupancy or completion evidence depending on the defined outcome; do not merge unlike milestones. Report unresolved cases and sample size. Evaluate whether the shortlist misses relevant projects and whether the customer gains useful context. For commercial usefulness, compare time spent and actual investigation/contact decisions against the customer’s existing workflow. Do not promise an ROI or sale from this small study.
 
-## Slide 9 — The customer value and competitive edge still need testing — 40 seconds
+DECISION AFTER THE TEST
+If public evidence improves a decision, continue that narrow workflow. If missing status or procurement context limits usefulness, explore permissioned developer, contractor or supplier interviews and legitimate data partnerships. If incumbents already meet the need or users cannot act, revise or pivot. Equipment recommendations and purchase-window forecasting remain later scope. Deployment follows validation; more model complexity alone does not resolve unreliable dates or absent customer value.
 
-On slide: DC Byte: global supplier/project intelligence.
-Coco pilot: local source-linked rules and updates.
-Customer interviews: not yet conducted.
+SOURCES
+https://github.com/snehal-jindal/alt.data_coco.ai
 
-Visual: small two-column comparison; no invented ROI or superiority claim.
+## 11. Thank you
 
-Speaker notes: “DC Byte already advertises early project alerts, segmentation,
-supplier relationships and prioritization. It also describes analyst research
-and industry engagement. Our intended use substantially overlaps. We have a
-small inspectable prototype, not a demonstrated advantage over its product.
-Customer interviews have not been conducted. A clearer investigation list or
-useful project update could help a supplier, but saved time and additional sales
-are untested. We have neither proven commercial alpha nor ruled out value.”
+SAY
+The midterm produced a reproducible research pilot and clarified what a useful product must answer. I welcome feedback on which piece of information would actually change a cooling supplier’s next call.
 
-Footer: DC Byte Supplier Analytics and FAQ, checked October 14, 2026; Coco.ai results.
+SOURCES
+https://github.com/snehal-jindal/alt.data_coco.ai
 
-## Slide 10 — Plause feedback made the explanation more specific — 25 seconds
+## 12. Backup: Belmont’s status changed over time
 
-On slide:
-Unclear signal/narrative → one use case, explicit steps.
-Validate the metric → separate timing and outcome quality.
-Compare existing products → explicit DC Byte overlap.
+SAY
+This optional backup shows how manually recovered documents change the status of Belmont over time. The code uses reporting-document dates, rather than assuming information was available on an earlier event date. It is an update-handling demonstration using prepared facts, not an automated monitoring platform.
 
-Visual: three feedback-to-response pairs.
-
-Speaker notes: “Plause feedback asked for clearer signal explanation and narrative,
-how the final metric would be validated, and comparison with existing products.
-This presentation responds with one supplier decision, explicit steps, two distinct
-evaluation questions and a competitor comparison. The signal means a proposed
-development worth investigating. It does not mean an imminent equipment purchase.
-These are responses in this presentation; I am not claiming newly supplied
-feedback caused all the earlier research.”
-
-Footer: Plause peer feedback.
-
-## Slide 11 — What will it take to validate the idea? — 45 seconds
-
-On slide:
-Verify dates and interpretations.
-Match construction outcomes; test unseen cases.
-Interview suppliers; compare their workflow.
-Continue, revise or pivot based on evidence.
-
-Visual: four concise risk-to-action rows; deployment is gated by validation.
-
-Speaker notes: “First, independently check the source dates and interpretations.
-Second, match candidates to dated construction or completion evidence and follow
-both shortlisted and comparison projects to the same cutoff. Keep unknowns separate,
-then estimate how many alerts genuinely progress and which relevant projects we
-miss. Third, ask suppliers when outreach is useful and what they already know.
-Compare decision quality and review time with their current workflow. If updates
-to known projects help, test that decision. If existing tools already solve it,
-change direction. Equipment fit and purchasing forecasts remain later scope.”
-
-Footer: Coco.ai proposed validation plan; not completed customer interviews or deployment.
-
-## Slide 12 — Thank you — 10 seconds
-
-On slide: Thank you / What information would change a supplier's next call?
-Repository link for discussion and reproducibility.
-
-Speaker notes: “We have working research code and inspectable evidence. Useful
-sales intelligence is still the hypothesis to validate. I welcome feedback on
-which supplier decision we should test next.”
-
-Footer: github.com/snehal-jindal/alt.data_coco.ai.
-
-## Full source URLs
-
-- Planning API: https://logis.loudoun.gov/gis/rest/services/Projects/LOLA_DATA/MapServer/0
-- Issued permits: https://logis.loudoun.gov/gis/rest/services/LMARC/LandMARC_Permits/MapServer/1
-- Submitted permits: https://logis.loudoun.gov/gis/rest/services/LMARC/LandMARC_Permits/MapServer/2
-- January 26 issue: https://myemail.constantcontact.com/Ashburn-District-Newsletter---January-26th--2024.html?aid=_M6Nr9sPRk8&soid=1133733712698
-- February 8, 2023 issue: https://www.loudoun.gov/Archive.aspx?ADID=12779
-- March 22 release: https://www.loudoun.gov/Archive.aspx?ADID=13777
-- April 11 release: https://www.loudoun.gov/ArchiveCenter/ViewFile/Item/13812
-- DCD: https://www.datacenterdynamics.com/en/news/sdc-capital-partners-planning-data-center-campus-in-belmont-virginia/
-- Contractor self-report: https://www.linkedin.com/company/sparkle-painting-co.-inc.
-- Conditional approval report: https://myemail.constantcontact.com/Ashburn-District--October-Wrap-Up-Flyer---.html?aid=DFYPIm4LYSI&soid=1133733712698
-- CyrusOne follow-up: https://myemail.constantcontact.com/Broad-Run-Bulletin---October-2026.html?aid=VjdCYNcS0uo&soid=1133737022011
-- DC Byte: https://www.dcbyte.com/us/supplier-analytics/
-- DC Byte methodology: https://www.dcbyte.com/faq/
-
-Availability dates are publisher-stated proxies. First versions and delivery logs
-are not authenticated. Contractor scope is self-reported and not proof of finished
-work. Conditional approval is separate from full approval. No cooling purchase,
-construction-completion accuracy or competitor-performance claim is made.
+SOURCES
+https://www.loudoun.gov/Archive.aspx?ADID=12779
+https://www.loudoun.gov/Archive.aspx?ADID=13777
+https://www.loudoun.gov/ArchiveCenter/ViewFile/Item/13812
