@@ -1,0 +1,48 @@
+{
+  "study": "Small retrospectively curated dated-document pilot; NOT independent predictive validation",
+  "geography": "Ashburn District in Loudoun County Virginia",
+  "cohort_document_date": "2024-01-26",
+  "endpoint": "planning approval; board rezoning and administrative site-plan approvals distinguished in notes",
+  "training_used": false,
+  "historical_delivery_timestamps_verified": false,
+  "curated_inputs": "AI-assisted human-readable extraction of issue-era scope and stage; independent review pending",
+  "screened_entries": 16,
+  "keyword_baseline_alerts": 6,
+  "investigate": 3,
+  "review": 1,
+  "later_stage": 1,
+  "out_of_scope": 11,
+  "investigation_alerts_with_recovered_later_approval": 1,
+  "investigation_alerts_with_unknown_outcome_date": 2,
+  "belmont": {
+    "fixed_issue_notice": "2024-01-26",
+    "approval_date": "2024-04-10",
+    "fixed_issue_lead_days": 75,
+    "earliest_recovered_county_notice": "2023-02-08",
+    "earlier_county_notice_lead_days": 427,
+    "recovered_industry_news_date": "2022-10-06",
+    "industry_news_lead_days": 552,
+    "county_notice_advantage_days_vs_news": -125,
+    "fixed_issue_advantage_days_vs_news": -477,
+    "initial_denial_then_reconsideration": true,
+    "interpretation": "Notice precedes planning approval but recovered industry news precedes all recovered county notices. No news-timing advantage demonstrated."
+  },
+  "vantage_control": {
+    "issue_to_prior_approval_days": -256,
+    "interpretation": "Already-approved control; negative lead is preserved and not mislabeled early"
+  },
+  "limitations": [
+    "Selected newsletter issue and tiny cohort; no countywide recall estimate",
+    "Manual feature extraction and source selection after outcomes were knowable; not blind testing",
+    "Publisher-stated dates used as historical-availability proxies",
+    "Two proposed-project approval dates not recovered; not failures and not proven pending through today",
+    "Prior news may have been edited; first-version existence/content not independently archived",
+    "Planning approval is not construction start or an open cooling procurement window",
+    "No empirical DC Byte timing/coverage comparison; no measured sales or time-saving advantage"
+  ],
+  "input_sha256": {
+    "dated_projects.csv": "98bca5a6ae122d103b12a29c5bac8582610a8e5741eca4a07864b1339e03c0b8",
+    "dated_events.csv": "1988d78a7697e1a67e40b73d207622e2c3e7009f1758d8c14fee35757040a17e",
+    "dated_sources.csv": "d9cf71abc9ecd1a5c0d35bd87c2bfe8fe6178ca0a856341600990e135fe9dbff"
+  }
+}

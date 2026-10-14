@@ -34,6 +34,19 @@ Issued-feed rows receive precedence when present. Duplicate address rows at the
 same permit GUID do not become independent observations.
 # Midterm qualification additions, October 14
 
+These qualification files describe supporting background work. The current
+dated-document inputs are `data/curated/dated_projects.csv`, `dated_events.csv`
+and `dated_sources.csv`. They contain manual source-fact extractions, separate
+from current permit descriptions. Scope and stage are taken from the issue-era
+source; later outcomes are joined only after alert decisions.
+
+Current outputs are `early_notice_screening.csv`,
+`early_notice_investigation_queue.csv`, `early_notice_timeline.csv` and
+`early_notice_summary.json`. Blank approval dates mean not recovered, not failed.
+Signed notice days preserve already-past milestones and negative news advantages.
+An evidence document date is distinct from the event date it reports. Issue dates
+are publisher-stated availability proxies, not verified delivery timestamps.
+
 The current task and source/date interpretation are defined in
 `midterm_scope.md` and `midterm_walkthrough.md`. The following files derive from
 the 407-row, 2023–2025 commercial-building cohort:

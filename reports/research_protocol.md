@@ -1,9 +1,25 @@
 # Research protocol
 
+## Current scope, October 14 update
+
+The dated-document pilot is the primary midterm analysis. It compares a fixed
+January 26, 2024 newsletter's proposal flags with planning-approval events and
+recovered news coverage. It uses manually curated issue-era facts and simple
+rules. It is not statistical training or an independent predictive test.
+
+The result does not establish incremental discovery timing over news. Missing
+approval dates remain unknown. Approval is a development milestone, not a verified
+cooling purchasing window. See `midterm_walkthrough.md` for current conclusions.
+
+The rest of this document preserves the earlier purchasing-forecast proposal.
+Its 180-day horizon and historical-cohort plan are deferred, not current claims.
+The earlier reference to 140 seed parcels means representative cleaned parcel
+IDs; 160 parcels were actually queried. Neither set is a historical at-risk universe.
+
 ## Continuity with the original pitch
 
-Keep the cooling seller, Loudoun geography, weekly prioritization decision,
-180-day proposed horizon and comparison with simple baselines. Do not expand
+Keep the cooling seller, Loudoun geography, prioritization decision and
+comparison with simple baselines. The earlier 180-day horizon was unvalidated. Do not expand
 into workforce prediction, earnings forecasting or a generic lead-generation app.
 
 ## Decisions supported by the first audit

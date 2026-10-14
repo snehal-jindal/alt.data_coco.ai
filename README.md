@@ -1,85 +1,79 @@
 # Coco.ai
 
-Alternative-data research for a cooling supplier's project-investigation queue.
-
+A small, transparent study of public-record notice for data-center suppliers.
 **Owner:** Snehal Jindal
 
-## Midterm: one task, one county
+## Current midterm question
 
-Identify filings documenting new data-center buildings or substantial physical
-data-hall additions in **Loudoun County, Virginia**. Compare a simple county
-work-class filter with transparent description rules.
+Can dated public documents identify proposed new data-center buildings before
+planning approval, and do they add timing value over ordinary public information?
 
-This implements the first qualification step of the original sales-intelligence
-idea. It does not estimate buying dates, win probability, equipment requirements
-or earnings. Workforce intelligence remains future scope.
+The customer hypothesis is a cooling supplier deciding which project to investigate.
+Planning approval is an observable development milestone, not a verified buying
+window. Purchasing probabilities, equipment fit and RFQ timing remain deferred.
 
-## Completed and preliminary results
+## Result: advance notice, no demonstrated discovery advantage
 
-Official records were collected October 13, 2026, cleaned and deduplicated.
-The focused cohort has 407 commercial-building filings applied for in 2023–2025.
-Each has an AI-assisted desk label, source evidence and reason. Executable code
-compares a county-category baseline with one rules classifier and a review route.
+A fixed January 26, 2024 Ashburn District newsletter contains 16 application
+entries. A broad DC-mention baseline flags 6; our manually prepared scope/stage
+rules produce 3 investigation items, 1 review item and 1 later-stage DC item.
 
-Across resolved desk labels, baseline precision is 63.0%; rule precision is 87.5%.
-Rules qualify 28 of 29 desk-positive filings automatically, make 4 clear false
-alerts and send 80 filings to review. **In the 2025 subset, baseline precision is
-better: 83.3% versus 76.9%.** Aggregate improvement is not consistent by year.
+For Belmont Innovation Campus, the fixed issue is 75 days before April 10, 2024
+approval. An earlier recovered county notice is 427 days before approval.
+**Recovered industry news is 552 days before approval: 125 days earlier than that
+county notice.** No news-timing advantage is demonstrated.
 
-These are internal agreement figures, **not independent test performance**.
-The same AI assistant interpreted descriptions and developed rules. Labels need
-independent human/expert validation. Current edited text cannot establish what
-was knowable in earlier years. Filings are not necessarily distinct buildings,
-live leads or purchases. Review-work savings and commercial alpha are unproven.
+Vantage VA3 was already approved 256 days before the fixed issue. Two proposed
+projects lack recovered later approval dates and remain unknown, not failures.
+The keyword baseline finds all 3 investigation items on the same issue date.
+Filtering is implemented; incremental discovery timing and sales value are unproven.
 
-Read [the plain-English walkthrough](reports/midterm_walkthrough.md) first.
-[The scope](reports/midterm_scope.md) defines the task. The older
-[research protocol](reports/research_protocol.md) concerns deferred buying-window
-prediction; its suggested 180-day horizon was unvalidated.
+## Read first
 
-## Structure
+- [Plain-English explanation](reports/midterm_walkthrough.md): complete current story.
+- [Presentation brief](reports/midterm_presentation_brief.md): six-minute narrative,
+  requirement mapping and honest answers for questions; no slide deck created.
+- [Source register](data/curated/dated_sources.csv): links, dates and their limits.
+- [Results](data/processed/early_notice_summary.json): reproducible numbers.
 
-- `scripts/collect.py`: read-only, paginated official-source collection.
-- `scripts/audit.py`: deterministic cleaning, deduplication and source audit.
-- `scripts/qualify.py`: focused cohort, baseline and readable description rules.
-- `scripts/evaluate_qualification.py`: agreement metrics, year breakdown and errors.
-- `tests/test_data_quality.py`: checks against actual cleaned records.
-- `data/processed/`: cleaned snapshot tables and audit samples.
-- `data/raw/`: original query responses and source metadata, kept locally.
-- `reports/`: source findings, definitions and research decisions.
+## Reproduce the current pilot
 
-## Reproduce the frozen midterm audit
+Python 3.12+, standard library only:
 
-Python 3.12+, standard library only. Committed processed data is sufficient.
+    python scripts/analyze_early_notice.py
+    python -m unittest discover -s tests -v
 
-```sh
-python scripts/qualify.py
-python scripts/evaluate_qualification.py
-python -m unittest discover -s tests -v
-```
+Inputs are AI-assisted manual fact extractions in data/curated/. They are NOT an
+automatically scraped historical dataset or independently human-validated labels.
+The script outputs a screening table, investigation queue, timeline and summary
+in data/processed/early_notice_*.
 
-Outputs in `data/processed/` include full predictions, qualified filings, a review
-queue, comparison, exposed errors and metrics. `qualification_annotations.csv`
-contains initial desk labels and original text for independent review.
+There is no statistical training or untouched test set. Publisher-stated issue
+dates are historical-availability proxies; original delivery/posting timestamps
+and first versions have not been independently verified. Original document bytes
+could not be downloaded from this environment and are not archived here.
+Eleven code/data checks pass; that does not validate commercial performance.
 
-Source recollection is separate:
+## What remains
 
-```sh
-python scripts/collect.py --parcel-followup
-python scripts/audit.py
-```
+Independently review source facts, recover unresolved outcomes, evaluate unseen
+dated sources and confirm a useful seller decision. DC Byte already advertises
+early alerts, segmentation and supplier prioritization; no feature gap or
+superiority over it is established. Continue, change the supported decision or
+pivot according to evidence rather than force a success claim.
 
-The live source changes. Collection replaces local raw files and can change the
-cohort. Save a dated copy first; do not reuse frozen annotations on changed data.
-Raw responses retain query parameters, timestamps and hashes locally. They are
-not committed to this repository.
+## Earlier supporting work
 
-## Data boundaries
+The October 13 county collection and October 14 407-permit qualification exercise
+are preserved as background. They classify current descriptions and do not prove
+historical early detection. Read [the background explanation](reports/qualification_walkthrough.md)
+and [source audit](reports/source_audit.md) if needed. They are not a second current
+model or a statistical training set for the dated pilot.
 
-A permit is not a project or a purchase. A parcel is not necessarily a single
-building. Current status and edited descriptions cannot be used as historical
-features without publication/version evidence. Blank outcomes are not negatives.
+Live collection scripts remain available, but recollecting replaces local raw
+responses and can change the cohort. Save dated copies and re-annotate changed
+text rather than reuse frozen labels.
 
-Source government records retain their original rights and disclaimers.
-No blanket license is asserted for collected data or documents. Contact names
-and emails are intentionally excluded from collected record fields.
+A permit is not a purchase; a parcel is not necessarily one building. Government
+records retain their original rights/disclaimers. No blanket data license is
+asserted. Contact fields were excluded from the original API collection.

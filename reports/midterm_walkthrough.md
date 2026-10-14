@@ -1,292 +1,278 @@
-# Coco.ai: the midterm work, in plain English
+# Coco.ai: the current project, explained from beginning to end
 
-Prepared October 14, 2026. This report accompanies executable data/code, not a
-finished slide deck. Start here; the other reports preserve the technical detail.
+Updated October 14, 2026. This is the main midterm reference. The earlier
+407-permit description-classification exercise is retained separately in
+`qualification_walkthrough.md`; it does not establish early-warning performance.
 
-## 1. What we are trying to do
+## The goal and the result
 
-The original Coco.ai idea was to help suppliers recognize a potential customer
-need from operational records before a normal sales announcement or RFP makes
-it obvious. Our first customer is a data-center cooling supplier. Workforce
-signals, other industries and investment predictions are outside this midterm.
+We want to help a data-center cooling supplier decide which proposed project
+deserves investigation before a later development milestone. The first measurable
+milestone is **planning approval**, because public sources provide identifiable
+approval events. We have not established that this is an open equipment-buying
+window. Permission to develop, construction start, and supplier selection are
+different events.
 
-Your latest decisions narrow the first step to new data-center buildings and
-substantial physical expansions in Loudoun County, Virginia. The working question
-is: **which building filings deserve investigation as evidence of a new physical
-data-center project?** This is qualification, not a purchase forecast.
+We completed a small dated-document pilot in the Ashburn District of Loudoun
+County, Virginia. It produces an investigation queue, a review queue and a source-
+backed timeline. **It does not demonstrate earlier discovery than ordinary news.**
+For the fully traced example, recovered news coverage predates our recovered
+county notices. That negative comparison is a main result, not something to hide.
+One case cannot establish that public-record intelligence always fails, just as
+advance notice in one case cannot prove the product works. The present evidence
+supports a functioning small research prototype and leaves broader usefulness open.
 
-Our output is a filing plus its source text and explanation, assigned to one of
-three queues: qualifies under our scope, clearly outside this scope, or needs
-review. There is no numerical purchasing probability or buying-window estimate.
+## What we did, in everyday terms
 
-The distinction matters. A new data-center building may be relevant to a cooling
-supplier, but its cooling supplier could already have been chosen. A building
-permit alone does not establish an open contract or imminent quote request.
+A county newsletter lists proposed developments. We read each listed application
+and recorded what the issue said about its purpose and stage. We wrote a short
+program that keeps explicit proposed DC buildings awaiting planning decisions,
+marks already-approved developments as later-stage, and asks for review when
+building scope is unclear. We then looked for dated later approval evidence and
+compared the recovered county notices with a dated industry-news article.
 
-## 2. What existed before, and what has been done now
+There are no learned parameters. The rules are written instructions. There is
+no statistical training set and no untouched test set. The analysis is a
+retrospective, AI-assisted, manually prepared case pilot. Another person should
+review the extraction before it is treated as reliable ground truth.
 
-At the initial presentation we had a customer, a proposed alternative-data use
-case and a research plan. This was not yet a collected dataset or tested product.
+## Which data is being used for which purpose
 
-On October 13 we downloaded real county planning and permit records and wrote
-code to clean them. That broad source audit exposed a problem: the feeds contain
-old event dates but current descriptions, and no cooling RFQ labels. We could not
-honestly test the original idea of predicting a quote request within 180 days.
-That horizon was an unvalidated suggestion, not a commitment from a seller.
-
-On October 14, following your scope decisions, we created one narrower dataset,
-explicit labeling criteria, AI-assisted initial desk labels, a county-category
-baseline, one transparent rule classifier, an evaluation script, error records
-and reproducibility checks. We did not turn missing RFQs into negative outcomes.
-
-## 3. Where the data comes from
-
-All model-input records come directly from official Loudoun County public GIS
-services. An API is simply a structured download route for the county's records.
-We did not buy DC Byte data, scrape LinkedIn or invent examples.
-
-| Source | What it contains | What we use it for |
+| Data | Dates and location | Purpose |
 |---|---|---|
-| [County planning layer](https://logis.loudoun.gov/gis/rest/services/Projects/LOLA_DATA/MapServer/0) | Planning application number, date, type, current status and description | Earlier source exploration; **not an input to the current classifier** |
-| [Issued permit layer](https://logis.loudoun.gov/gis/rest/services/LMARC/LandMARC_Permits/MapServer/1) | Permit identifier, application/issue dates, work category, parcel and description | Main permit collection; supplies current classification examples |
-| [Submitted permit layer](https://logis.loudoun.gov/gis/rest/services/LMARC/LandMARC_Permits/MapServer/2) | Similar fields for submitted records | Complements the issued feed; combined and deduplicated |
-| Our initial desk-annotation file | Our interpretation of each description, with evidence and reason | Initial answer key for an internal agreement audit; **not county or independent expert labels** |
-| Our generated predictions and metrics | Program decisions and comparisons with desk labels | Model outputs; these are not additional source data |
+| Main screening source: Ashburn District newsletter | January 26, 2024; Ashburn District, Loudoun | Fixed set of 16 application entries; issue-era scope and stage |
+| Earlier archived county newsletters | February 8, 2023 and January 8, 2024 | Additional recovered Belmont notices; not earliest-ever claims |
+| Dated county news releases | March 22 and April 11, 2024 | Evidence of Belmont denial, reconsideration and approval events |
+| Dated industry-news article | October 6, 2022 | Ordinary-news comparison for the same campus |
+| Archived issued-permit report | July 1–15, 2025 reporting period | Checks one permit's issue date against the prior snapshot; not a campus timing endpoint |
+| Current DC Byte product page | Checked October 14, 2026 | Competitor capability research, not a measured competitor-performance test |
 
-Both permit feeds may have repeated rows for addresses or parcel associations.
-The county PermitGUID is the key for one permit. One permit can span parcels;
-one campus can contain several buildings; several permits can concern one
-building. We have not solved complete building/phase matching.
+All URLs, publisher identities, date interpretations and access limitations are
+in `data/curated/dated_sources.csv`. Project facts are in `dated_projects.csv`;
+later events are in `dated_events.csv`. These are AI-assisted manual extractions
+of facts from sources, not an automatically scraped historical database.
 
-## 4. Which dates and geography apply
+The newsletter is issued by the county supervisor's office, even though its
+online version is hosted by Constant Contact. County PDFs are on loudoun.gov.
+The comparison article is from Data Center Dynamics. No DC Byte dataset was
+purchased or used to produce alerts.
 
-The download happened October 13, 2026. The county permit feed's snapshot is also
-October 13. The larger collected permit table includes application dates from
-August 2000 through October 2026; the planning applications extend from May 2005
-through October 2026. We are **not modeling that whole history**.
+## Why one January 2024 issue, rather than the 2000–2026 collection
 
-The midterm cohort is only commercial-building permits applied for in 2023–2025:
+The earlier broad download contains historical application dates with current
+descriptions. It does not preserve what people could read on each old date.
+Restricting those records to 2023–2025 did not solve that problem.
 
-| Application year | Unique permit IDs |
+For this timing pilot, we selected a dated newsletter containing multiple
+development entries, including active proposals and an already-approved example.
+It gives a fixed, inspectable screening frame. We did not assemble the main
+screening list solely from projects known to receive later permits.
+
+However, this issue was selected retrospectively after some outcomes were known,
+and source recovery began with Belmont. The district, issue and tiny sample are
+not random or representative of all Loudoun developments. This is a feasibility
+pilot, not a full historical validation or a countywide discovery test.
+
+## What the program receives and returns
+
+The program receives three manually recorded facts from the January issue:
+
+1. Does the entry mention DC use anywhere?
+2. Is the main proposal explicitly for new DC buildings, another use, or mixed
+   land-use permission requiring more investigation?
+3. Does that issue describe planning as pending or already approved?
+
+It does not read later approval dates or today's statuses when deciding to alert.
+Those later dates are joined afterward only to evaluate timing. Code tests check
+that changing a future outcome field cannot change the initial alert decision.
+
+Outputs mean:
+
+- **Investigate:** explicit proposed DC buildings awaiting a planning decision.
+- **Review:** mixed DC-use permission or uncertain historical scope/stage.
+- **Later stage:** DC proposal whose approval was already reported in this issue.
+- **Outside scope:** primary application concerns another type of development.
+
+Later-stage does not mean no sales opportunity. It means the entry cannot count
+as a pre-approval warning under this endpoint. A watchlist item is not an open
+contract, a verified cooling requirement, or a probability of closing a sale.
+
+## Baseline and screening results
+
+Baseline: flag any application entry whose text mentions data-center use,
+including references to another application. We recorded that presence from the
+source; we did not run an automated text parser on an independently archived file.
+Both baseline and Coco rules therefore use manually curated source facts.
+
+| January 26 screening result | Count |
 |---|---:|
-| 2023 | 65 |
-| 2024 | 180 |
-| 2025 | 162 |
-| Total | 407 |
+| Application entries inspected | 16 |
+| Broad DC-mention baseline alerts | 6 |
+| Coco investigation items | 3 |
+| Mixed-scope item needing review | 1 |
+| Already-approved DC item | 1 |
+| Other entries outside scope | 11 |
 
-The exact selected application dates run January 10, 2023 to December 26, 2025,
-using Eastern local calendar dates. This bounded selection gives complete
-calendar years and avoids mixing incomplete 2026 with them. It does not prove
-these are the ideal commercial years or create a forecasting experiment.
+The three investigation items are Belmont Innovation Campus, CyrusOne Broadlands
+and Belmont Landbay KK. Vantage VA3 is already approved. Luck Stone Leesburg Plant
+is mixed quarry/DC-use permission, so it goes to review. Northstar Square is a
+residential application with a cross-reference to a different DC application.
 
-Every selected record comes from the Loudoun County collection. Ashburn and
-Sterling are locations within this county, not separate model markets. The table
-has 93 representative parcel IDs; four permits have multiple parcel associations,
-making 95 parcels across all those source associations.
+These counts describe the implemented queue logic. They are not independent
+precision/recall estimates or evidence that review time is reduced. The broader
+baseline detects every one of the three Coco investigation items on the same
+issue date: **the filtering adds no detection-time advantage over this baseline.**
 
-Earlier I described 140 as the seed-parcel count. That conflated two numbers.
-The raw keyword rows actually generated **160 queried parcels**; after one-row-
-per-permit cleaning, 140 representative parcels remained on keyword records.
-The focused cohort is 407 filings regardless of that correction.
+## The timing result: Belmont Innovation Campus
 
-An application date tells us when the filing was made. A retrieval date tells us
-when we downloaded the version we possess. These are different. Some 2024/2025
-filings explicitly mention revisions in 2026. We cannot place that later text
-back in 2024 and pretend a seller knew it then. The present audit classifies the
-text now available. Older filings are testing examples, not automatically live
-sales leads in October 2026.
+We linked the old ZMAP-2022-0021 application and later LEGI-2023-0048 umbrella
+application using the campus name and explicit county application references.
+This is a campus-level comparison; it does not establish identical building
+scope across every version. The final approved proposal was reduced.
 
-## 5. How we narrowed and cleaned the records
+| Evidence or event | Date | Meaning |
+|---|---|---|
+| Recovered industry article describing the proposal | October 6, 2022 | An ordinary-news reader already had campus visibility |
+| Earlier recovered county newsletter describing the proposal | February 8, 2023 | Pending proposal is visible in a dated county issue |
+| Main cohort newsletter | January 26, 2024 | Proposal remains awaiting Board action |
+| Initial denial | March 13, 2024 | Progress is uncertain; proposal is not guaranteed to advance |
+| Vote to reconsider | March 19, 2024 | Revised proposal is revived |
+| Approval of reduced proposal | April 10, 2024 | Our chosen later milestone occurs |
 
-The initial keyword queries found descriptions mentioning data centers. We then
-downloaded all permit types at the 160 associated parcel IDs to retain records
-whose short description omitted the words data center. Cleaning produced 6,858
-unique permit IDs. This includes electrical, mechanical and unrelated work.
+The January 26 notice precedes approval by **75 calendar days**. The recovered
+February 8, 2023 notice precedes approval by **427 days**. But the recovered
+industry article precedes approval by **552 days**. Even our earlier county
+notice is **125 days later than the industry article**. We therefore found
+advance notice before approval but no incremental discovery advantage over news.
 
-We selected the commercial-building type and application years 2023–2025,
-leaving 407. Planning and mechanical records stay in the source audit; they are
-not mixed into this classifier. Status, monetary value and issue dates are not
-classification inputs. The baseline uses work category; the alternative uses
-description text. Application date only selects the cohort and year summaries.
+This is one fully traced later approval, not average performance across three
+successful projects. For CyrusOne Broadlands and Belmont Landbay KK, later
+approval dates were not recovered in this analysis. We leave their outcomes
+unknown. We do not count either as failed, successful, or definitely pending today.
 
-Duplicates with the same PermitGUID are removed. Invalid dates are blanked and
-flagged rather than fabricated. Twenty-two local-day issue-before-application
-anomalies in the larger table are flagged; neither date becomes a buying label.
-Multiple parcel mappings are reported separately. Missing information leads to
-review. Cross-ID copy filings remain a future deduplication problem.
+Vantage VA3 provides a useful negative timing control: its May 15, 2023 site-plan
+approval predates the January 26, 2024 issue by 256 days. We preserve that negative
+lead time rather than portraying the newsletter as an early approval warning.
 
-The selection is biased toward parcels already identifiable as DC-associated
-from current text. Therefore this experiment **cannot measure how well we find
-unknown new DC sites across the county**, or how early we would have found them.
-It tests qualification within the collected candidate pool.
+## The date assumptions, stated honestly
 
-## 6. What counts as the right answer
+We use printed newsletter issue dates as proxies for when subscribers could
+have received the information. We did not independently verify original delivery
+logs, historical web posting timestamps or first-version snapshots. The result
+should be described as a **publisher-dated reconstruction**, conditional on
+those issue dates representing availability of the observed content.
 
-Positive means explicit whole-building data-center construction, its core/shell,
-or a physical addition creating new data-hall space. A new building on an
-existing campus qualifies. Internal fit-out, office-only work, guardhouses,
-mechanical yards and separately referenced occupancy phases do not qualify under
-this particular physical-building definition. They may still be commercially
-valuable under a broader equipment-sales task; we deliberately exclude them here.
+A later news release can document an earlier event. For example, the March 22
+release describes votes on March 13 and March 19. The event dates do not prove
+our recovered release was readable before March 22. Both event date and evidence
+document date are saved in the output timeline.
 
-Unknown means the description is too vague to decide. A shell building without
-explicit DC use, unexplained acronym or generic phase is not quietly labeled
-negative. Our initial desk reading produced 29 positives, 310 negatives and
-68 unknowns. Every label and full source description is available in
-`qualification_annotations.csv`.
+The old DCD article has a displayed publication date, but its original first
+version was not independently archived. We do not assert that we recovered the
+earliest public mention ever, or that later edits never occurred. The dated
+comparison is still an important challenge to the discovery-alpha hypothesis.
 
-**I, the AI assistant, read the descriptions and developed the rules. These labels
-have not been independently reviewed by you, a construction expert or a seller.**
-The present results establish agreement with that initial interpretation. They
-do not establish real-world accuracy or independent generalization.
+The July 2025 report corroborates permit BLDC-2025-009449's July 8 issue event
+against the original snapshot. It does not provide its own publication timestamp.
+Campus/building linkage was not independently settled, so this permit is explicitly
+excluded from the campus timing calculation. We do not substitute permit issuance
+for a construction start or purchase.
 
-## 7. What the two methods do
+## What is genuinely implemented, and what is not
 
-Baseline: select filings the county categorizes as New Construction or Addition.
-This is what a very basic project list might do. It selects 57 filings. Those
-categories include guardhouses, office work and repeated construction phases.
+Implemented: transparent alert logic, issue-era source facts, an investigation
+queue, review/later-stage routing, signed notice-time calculations, a news
+comparison, explicit missing outcomes, source provenance and reproducibility.
+Eleven automated integrity/metric checks pass across the repository.
 
-Alternative: inspect the description with readable rules. Evidence of a new
-physical data-hall addition or whole DC building qualifies. Explicit routine/
-support work and parent-linked phases are excluded. Ambiguous records go to
-review. Each output names the rule that caused the decision.
+Not established: predictive accuracy, countywide coverage, independent label
+validity, actual historical delivery timestamps, supplier-selection timing,
+earlier discovery than news/DC Byte, saved salesperson time or additional sales.
+The source interpretation step is manual. Production document extraction and
+continuous monitoring have not been built; this is research code, not an app.
 
-For example, `BLDC-2024-035070` includes both interior work and a new two-story
-structure with two data halls. The physical addition qualifies even though its
-description also mentions an existing building. `BLDC-2025-051479` is a
-prefabricated guardhouse for a data center: the baseline qualifies it, while the
-text rule excludes it. `BLDC-2025-036008` says only Shell Building Permit, so the
-text rule asks for review rather than assuming a DC building.
+## Competitors and the business implication
 
-## 8. Training versus testing, without jargon
+DC Byte currently describes supplier-facing project discovery, early alerts for
+new/expanding DCs, segmentation, supplier relationships and prioritization. Our
+intended use overlaps substantially. We cannot infer from its public page that
+it lacks permit tracking or detailed project-stage information.
 
-A trained model learns patterns from labeled examples: we show it examples and
-answers, and it adjusts numerical parameters to improve its predictions.
+| Aspect | Coco pilot | DC Byte public offering |
+|---|---|---|
+| Intended user | Cooling supplier investigation workflow | Broader data-center supplier/sales teams |
+| Geography and coverage | One district issue; tiny research sample | Advertised global project coverage |
+| Early-project visibility | Reconstructed from public sources | Advertised early-stage/project alerts |
+| Prioritization | Explicit scope/stage rules and review route | Advertised supplier segmentation/prioritization |
+| Validation | One recovered later approval; unknowns retained | Not audited by us |
+| Measured timing advantage | None over the recovered news comparator | No empirical head-to-head comparison available |
 
-This first version works differently. We write instructions explicitly. It does
-not estimate parameters from examples and has no statistical training dataset.
-Rules are a legitimate analytical method; your professor's screenshot expressly
-allows analytical methods as well as AI/ML algorithms.
+Coco's source explanations and small local workflow are implemented attributes,
+not demonstrated competitive advantages. The commercial question is still open:
+would a seller find this decision support useful enough to adopt or pay for,
+given existing tools?
 
-Testing still means checking its answers. We ran both methods over all 407
-filings and compared them with the initial desk labels. We also report each year
-separately. **2023–2024 are not secretly a training set, and 2025 is not a blind
-test set.** All years were inspected during development. A year breakdown is a
-diagnostic, not an independent train/test split.
+The strongest current lesson is that discovery alone may be the wrong place to
+seek an advantage. Stage changes, reversals and scope reductions might matter
+for deciding where to spend investigation effort, but competitors also track
+stages. That direction needs customer evidence and a genuine comparison.
 
-For the next stronger test: freeze the current rules, obtain independently
-reviewed labels on new, previously unseen filings, and run once before changing
-rules. For a future learned model, use older independently labeled examples for
-training and later unseen examples for testing, keeping related buildings/phases
-together so copies do not appear on both sides. Buying-window forecasting would
-add the requirement of verifying what was public before each prediction date.
+## Challenges, resolutions and remaining roadblocks
 
-## 9. What the initial results actually show
+| Challenge | What we did | What remains |
+|---|---|---|
+| Current permit descriptions cannot be backdated | Switched primary timing evidence to dated documents | Historical first-version and delivery verification |
+| Broad original collection confused the task | Separated 407-permit background audit from 16-entry timing pilot | Larger representative dated sample if warranted |
+| Keyword mentions can concern another application | Used primary scope and historical stage; kept review route | Independent checking and automated extraction |
+| Later approval dates missing for two proposals | Preserved unknown outcomes | Recover dated records; no failure rate until coverage is known |
+| Similar names/campus phases can be mismatched | Used application IDs; excluded unsettled permit linkage | Building-level reconciliation where needed |
+| Ordinary news can be earlier | Measured and disclosed negative timing advantage | No support yet for a discovery-led commercial edge |
+| Direct PDF/HTML downloads returned HTTP 403 | Read accessible source text through web retrieval and recorded links | Original source bytes were not archived or hashed; no access bypass attempted |
+| Approval may be a poor sales milestone | Explicitly labeled it a development endpoint | Ask a seller when outreach is commercially useful |
 
-| Measure, all 407 filings | County-category baseline | Description rules |
-|---|---:|---:|
-| Automatically qualified filings | 57 | 32 |
-| Desk-positive filings among those | 29 | 28 |
-| Clear desk-negative false alerts | 17 | 4 |
-| Qualified filings with unknown desk label | 11 | 0 |
-| Desk positives not automatically qualified | 0 | 1 |
-| Filings sent to review | 0 | 80 |
-| Precision on resolved labels | 63.0% | 87.5% |
-| Recall on desk positives | 100% | 96.6% |
-| F1 on resolved labels | 0.773 | 0.918 |
+## Continue, change direction, or pivot?
 
-Precision asks: of the auto-qualified filings whose desk answer is known, how
-many fit our scope? Baseline: 29 / (29 + 17). Rules: 28 / (28 + 4). The 11 unknown
-baseline selections are excluded from that denominator, not assumed wrong.
-Across its entire 57-record queue, 29 are desk-positive, 17 negative and 11
-unresolved. This makes the precision figure's limit visible.
+Continue the same early-discovery thesis only if a larger independently reviewed
+dated sample shows useful incremental notice over news and existing workflows,
+and a seller confirms the selected milestone precedes a useful outreach window.
 
-Recall asks: of the 29 desk-positive filings, how many were auto-qualified? The
-rules place the remaining one in review, which still counts as a miss for
-automatic qualification. F1 combines precision and recall in one measure.
+Change the supported decision if discovery is already commoditized: for example,
+test whether documented changes to known projects improve investigation choices.
+This is a candidate question, not a feature gap proven in DC Byte.
 
-There is a second important result: **2025 precision is worse for our rules**,
-76.9% versus baseline 83.3% on resolved labels. All 10 desk positives are found
-by both, but rules produce three clear false alerts versus two for the baseline.
-The pooled gain is partly driven by noisier 2024 categories. No consistent
-year-to-year advantage has been established.
+Pivot later if suppliers cannot act on the available timing, existing products
+already serve the decision adequately, or we cannot obtain reliable dated
+evidence/outcomes. A narrower underserved supplier decision or another industry
+would need new customer discovery before new modeling. Do not add ML merely to
+make a weak information advantage sound more sophisticated.
 
-The 80-record rule review queue contains 68 unknowns, 11 desk negatives and one
-desk positive. Consequently a cleaner automatic shortlist does not prove lower
-total review effort: inspecting 32 alerts plus all 80 review records could take
-more work than inspecting the baseline's 57 alerts. Time savings need measurement.
+## What remains before stronger claims
 
-## 10. What went wrong, and why it matters
+Independent review, unseen-source evaluation and seller validation are still
+necessary. These are unresolved foundations, not optional details to hide as
+future expansion. Equipment recommendations, purchasing probabilities and
+seller-specific buying-window forecasts remain the explicitly deferred scope.
+Slides have not been rebuilt, and no customer interviews or Plause feedback have
+been invented.
 
-The four rule false alerts are an office phase, a temporary break tent whose
-description quotes a DC parent, and two existing-shell tenant fit-outs. These
-show a specific text problem: mentioning the parent new building does not mean
-this particular filing constructs it. The rule misses automatic qualification
-for VA16 because its wording says a building is to be constructed to operate as
-a data center rather than using the simpler phrases the rule recognizes.
+For the midterm, the honest claim is: **we built a small source-backed proposal
+watchlist and tested notice timing; public documents preceded approval in one
+traced case, but ordinary news was earlier and commercial alpha is unproven.**
 
-All five cases are in `qualification_errors.csv`. We did not tune the rules on
-these evaluation errors and rerun to present perfect scores. The next revision
-must distinguish this filing's actual scope from quoted parent context, then be
-evaluated on independently reviewed unseen records.
+## Reproduce and inspect
 
-Seven automated integrity/metric tests pass. They check record uniqueness,
-date handling, annotation coverage, source-text consistency and correct handling
-of unknowns. Passing code tests does not validate the commercial idea.
+Run `python scripts/analyze_early_notice.py` and then
+`python -m unittest discover -s tests -v`.
 
-## 11. Where the alternative-data value and startup question stand
+Inspect `data/processed/early_notice_screening.csv`,
+`early_notice_investigation_queue.csv`, `early_notice_timeline.csv` and
+`early_notice_summary.json`. The source inputs are committed under `data/curated/`.
+This reruns calculations on the frozen manual extraction; it does not recollect
+or authenticate the original historical webpages.
 
-County records exist for permitting and development administration. We use them
-for a supplier's different decision: which project should I investigate? That
-repurposing is the alternative-data use case. Public availability does not make
-the interpretation trivial, but public-source use alone is not a competitive moat.
-
-For this midterm, the measurable contribution is a transparent qualification
-experiment with a baseline, a review route and exposed errors. It is not yet
-early-warning alpha. Potential commercial value is a better investigation queue;
-less irrelevant work, earlier useful conversations and more sales remain
-unverified hypotheses.
-
-[DC Byte Supplier Analytics](https://www.dcbyte.com/us/supplier-analytics/)
-already advertises early alerts, project discovery, supplier segmentation and
-prioritization. We cannot claim these functions are unique. We have not tested
-against DC Byte. A plausible future distinction is seller-specific, source-backed
-buying-window evidence with demonstrated additional decision value; even that
-is a research direction, not a verified gap in competitors' capabilities.
-
-## 12. What remains, in order
-
-1. Independently review labels, especially every qualified filing and ambiguous
-   parent/phase case. Confirm with a seller which physical-building scopes are
-   actually useful. Correct disagreements before treating labels as ground truth.
-2. Test frozen rules on unseen filings; improve parent-context handling using a
-   separate development set. Compare both precision and human review effort.
-3. Resolve cross-ID copies and building/phase identities before claiming counts
-   of distinct projects. Verify current project status before using old examples
-   as live sales leads.
-4. For the post-midterm timing stage, recover dated public documents and obtain
-   seller evidence about supplier selection/RFQs. Define one actual buying-window
-   outcome and test whether earlier evidence anticipates it. Do not equate a
-   mechanical permit or construction start with an open buying opportunity.
-
-The primary risk is not too little modeling complexity: it is confidently
-answering a commercial question our evidence does not yet support. This narrower
-prototype makes the foundation inspectable while preserving the original goal.
-
-## 13. Professor-requirement check
-
-| Screenshot requirement | Evidence now available |
-|---|---|
-| Project overview and original goals | Sections 1–2: supplier sales intelligence, narrowed qualification step |
-| Progress and milestones/challenges | Official collection, cleaned cohort, code, initial labels, exposed feasibility limit |
-| Data collection and preparation/issues | Sections 3–6 and source audit; selection bias, edited text, duplicates, unknowns |
-| Model development including BASELINE and preliminary results | Executable category baseline and description rules; comparison and errors |
-| Evaluation metrics | Precision, recall, F1, abstentions, year breakdown; explicit non-independent evaluation limit |
-| Next steps | Ordered plan above, with evidence required before timing claims |
-| Challenges/risks and mitigation | Human review, unseen test, version evidence, building-level matching, commercial validation |
-| Customer discovery | No interviews conducted or results invented; outstanding work |
-| Plause feedback, encouraged but not required | No feedback supplied; no claim of incorporating it |
-
-The research artifacts support these requirements. The presentation itself has
-not been rebuilt; customer discovery and independent validation remain gaps,
-not accomplishments to imply in the midterm.
+The professor's required overview, progress, data preparation/issues, baseline,
+analytical method, preliminary results, evaluation, next steps and risks all have
+documented material above. Primary evaluation uses notice days and outcome-date
+coverage. Success rate, recall and sales conversion are not reported because the
+sample/labels cannot support them. Presentation preparation and real customer
+discovery remain outstanding.

@@ -1,0 +1,17 @@
+application_id,project_name,source_id,issue_date,dc_mention_anywhere,scope_at_issue,stage_at_issue,evidence_note
+LEGI-2023-0020,Northstar Square,ashburn_2024_01_26,2024-01-26,True,residential,deferred,Residential proposal; DC reference concerns another application
+LEGI-2023-0034,Arcola Farms Residential,ashburn_2024_01_26,2024-01-26,False,other,not_used,Residential development
+LEGI-2023-0038,Goose Creek Village West,ashburn_2024_01_26,2024-01-26,False,other,not_used,Residential development
+LEGI-2023-0048,Belmont Innovation Campus,ashburn_2024_01_26,2024-01-26,True,new_dc_buildings,pending,DC proposal awaiting Board action
+LEGI-2023-0084,Luck Stone Leesburg Plant,ashburn_2024_01_26,2024-01-26,True,mixed_land_use,pending,Quarry changes and DC-use permission; specific building scope unclear
+LEGI-2023-0067,Goose Creek Retail LLC,ashburn_2024_01_26,2024-01-26,False,other,not_used,Drive-through restaurant
+LEGI-2023-0074,Belmont Cove Rezoning,ashburn_2024_01_26,2024-01-26,False,other,not_used,Residential development
+LEGI-2023-0083,Trailside Park,ashburn_2024_01_26,2024-01-26,False,other,not_used,Telecommunications tower
+LEGI-2023-0102,Century Corner at Goose Creek Village,ashburn_2024_01_26,2024-01-26,False,other,not_used,Independent-living unit expansion
+PMTG-2023-0143,Belmont Greene Commercial,ashburn_2024_01_26,2024-01-26,False,other,not_used,Residential/commercial concept without formal application
+STMP-2022-0016,Vantage VA3,ashburn_2024_01_26,2024-01-26,True,new_dc_buildings,already_approved,DC site plan already approved
+STPL-2023-0041,CyrusOne Broadlands,ashburn_2024_01_26,2024-01-26,True,new_dc_buildings,pending,Proposed DC building under staff review
+STPL-2022-0021,Baker-Beam DC Yard-Luck Property,ashburn_2024_01_26,2024-01-26,False,other,not_used,Contractor shop and offices; DC acronym alone not counted
+BLDR-2023-001655,21819 Ashburn Road,ashburn_2024_01_26,2024-01-26,False,other,not_used,Residential demolition
+EPLAN-2024-0001,Wellers Corner Commercial Building,ashburn_2024_01_26,2024-01-26,False,other,not_used,Commercial-to-residential use change
+STPL-2023-0025,Belmont Landbay KK,ashburn_2024_01_26,2024-01-26,True,new_dc_buildings,pending,Two proposed DC buildings under staff review

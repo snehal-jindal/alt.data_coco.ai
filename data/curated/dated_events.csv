@@ -1,0 +1,10 @@
+application_id,event_type,event_date,source_id,event_note,matching_quality
+LEGI-2023-0048,county_proposal_notice,2023-02-08,ashburn_2023_02_08,Proposed DC rezoning described under older ZMAP-2022-0021 identifier,Explicit project-name and old/new application-ID continuity
+LEGI-2023-0048,county_proposal_notice,2024-01-08,ashburn_2024_01_08,Pending DC campus described under LEGI-2023-0048,Exact application ID
+LEGI-2023-0048,county_proposal_notice,2024-01-26,ashburn_2024_01_26,Pending DC campus in fixed screening cohort,Exact application ID
+LEGI-2023-0048,industry_news,2022-10-06,dcd_belmont_2022_10_06,Industry article identifies Belmont Innovation Campus proposal,Same campus name and location; not necessarily final approved design
+LEGI-2023-0048,planning_denial,2024-03-13,belmont_2024_03_22,Board initially denies proposal,Exact application ID
+LEGI-2023-0048,reconsideration_vote,2024-03-19,belmont_2024_03_22,Board votes to reconsider amended proposal,Exact application ID
+LEGI-2023-0048,planning_approval,2024-04-10,belmont_2024_04_11,Reduced proposal approved; original scale not preserved,Same campus; revised application
+STMP-2022-0016,planning_approval,2023-05-15,ashburn_2024_01_26,Administrative site-plan approval reported retrospectively,Exact application ID; reported in later newsletter
+BELMONT-PERMIT-ONLY,building_permit_issue,2025-07-08,permits_2025_07_01_15,BLDC-2025-009449 at 19560 Hyperspace Lane; not automatically linked into campus timing metric,Exact permit ID and parcel 113167503000 match processed snapshot; campus linkage not independently settled

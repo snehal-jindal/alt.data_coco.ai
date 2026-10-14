@@ -1,5 +1,10 @@
 # Midterm scope, fixed before evaluation
 
+Background scope for the earlier current-description qualification exercise.
+The primary midterm analysis is now the dated-document pilot described in
+`midterm_walkthrough.md`. This file is preserved to document the earlier task,
+not to imply it measures early notice or trains the current rules.
+
 ## User decisions, October 14, 2026
 
 Start with discovering or qualifying opportunities. Prioritize new data-center
