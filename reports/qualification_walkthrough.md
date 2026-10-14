@@ -14,7 +14,7 @@ need from operational records before a normal sales announcement or RFP makes
 it obvious. Our first customer is a data-center cooling supplier. Workforce
 signals, other industries and investment predictions are outside this midterm.
 
-Your latest decisions narrow the first step to new data-center buildings and
+The research scope narrows the first step to new data-center buildings and
 substantial physical expansions in Loudoun County, Virginia. The working question
 is: **which building filings deserve investigation as evidence of a new physical
 data-center project?** This is qualification, not a purchase forecast.
@@ -38,7 +38,7 @@ old event dates but current descriptions, and no cooling RFQ labels. We could no
 honestly test the original idea of predicting a quote request within 180 days.
 That horizon was an unvalidated suggestion, not a commitment from a seller.
 
-On October 14, following your scope decisions, we created one narrower dataset,
+On October 14, following the scope definition, we created one narrower dataset,
 explicit labeling criteria, AI-assisted initial desk labels, a county-category
 baseline, one transparent rule classifier, an evaluation script, error records
 and reproducibility checks. We did not turn missing RFQs into negative outcomes.
@@ -139,8 +139,8 @@ negative. Our initial desk reading produced 29 positives, 310 negatives and
 68 unknowns. Every label and full source description is available in
 `qualification_annotations.csv`.
 
-**I, the AI assistant, read the descriptions and developed the rules. These labels
-have not been independently reviewed by you, a construction expert or a seller.**
+**AI assistance supported description labeling and rule development. The labels
+have not been independently reviewed by a construction expert or supplier.**
 The present results establish agreement with that initial interpretation. They
 do not establish real-world accuracy or independent generalization.
 
@@ -169,8 +169,7 @@ answers, and it adjusts numerical parameters to improve its predictions.
 
 This first version works differently. We write instructions explicitly. It does
 not estimate parameters from examples and has no statistical training dataset.
-Rules are a legitimate analytical method; your professor's screenshot expressly
-allows analytical methods as well as AI/ML algorithms.
+The analytical method is a deterministic rule system.
 
 Testing still means checking its answers. We ran both methods over all 407
 filings and compared them with the initial desk labels. We also report each year
@@ -276,21 +275,3 @@ is a research direction, not a verified gap in competitors' capabilities.
 The primary risk is not too little modeling complexity: it is confidently
 answering a commercial question our evidence does not yet support. This narrower
 prototype makes the foundation inspectable while preserving the original goal.
-
-## 13. Professor-requirement check
-
-| Screenshot requirement | Evidence now available |
-|---|---|
-| Project overview and original goals | Sections 1–2: supplier sales intelligence, narrowed qualification step |
-| Progress and milestones/challenges | Official collection, cleaned cohort, code, initial labels, exposed feasibility limit |
-| Data collection and preparation/issues | Sections 3–6 and source audit; selection bias, edited text, duplicates, unknowns |
-| Model development including BASELINE and preliminary results | Executable category baseline and description rules; comparison and errors |
-| Evaluation metrics | Precision, recall, F1, abstentions, year breakdown; explicit non-independent evaluation limit |
-| Next steps | Ordered plan above, with evidence required before timing claims |
-| Challenges/risks and mitigation | Human review, unseen test, version evidence, building-level matching, commercial validation |
-| Customer discovery | No interviews conducted or results invented; outstanding work |
-| Plause feedback, encouraged but not required | No feedback supplied; no claim of incorporating it |
-
-The research artifacts support these requirements. The presentation itself has
-not been rebuilt; customer discovery and independent validation remain gaps,
-not accomplishments to imply in the midterm.

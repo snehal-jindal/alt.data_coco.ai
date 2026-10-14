@@ -1,9 +1,8 @@
 # Coco.ai: the current project, explained from beginning to end
 
-## Refinement for the eight-minute presentation
+## Current research status
 
-The current written slide structure is `midterm_slide_structure.md`, using the
-user's draft, professor screenshots and actual Plause feedback.
+The presentation narrative and speaker notes are in `midterm_slide_structure.md`.
 
 Two further checks were implemented. `replay_watchlist.py` processes recovered
 documents in disclosure-date order. Belmont remains investigate through the
@@ -288,8 +287,7 @@ Independent review, unseen-source evaluation and seller validation are still
 necessary. These are unresolved foundations, not optional details to hide as
 future expansion. Equipment recommendations, purchasing probabilities and
 seller-specific buying-window forecasts remain the explicitly deferred scope.
-Slides have not been rebuilt, and no customer interviews or Plause feedback have
-been invented.
+The midterm presentation is complete. Customer interviews remain outstanding.
 
 For the midterm, the honest claim is: **we built a small source-backed proposal
 watchlist and tested notice timing; public documents preceded approval in one
@@ -306,9 +304,6 @@ Inspect `data/processed/early_notice_screening.csv`,
 This reruns calculations on the frozen manual extraction; it does not recollect
 or authenticate the original historical webpages.
 
-The professor's required overview, progress, data preparation/issues, baseline,
-analytical method, preliminary results, evaluation, next steps and risks all have
-documented material above. Primary evaluation uses notice days and outcome-date
-coverage. Success rate, recall and sales conversion are not reported because the
-sample/labels cannot support them. Presentation preparation and real customer
-discovery remain outstanding.
+Primary evaluation uses notice days and outcome-date coverage. Success rate,
+recall and sales conversion are not reported because the sample and labels cannot
+support them. Independent validation and customer discovery remain outstanding.

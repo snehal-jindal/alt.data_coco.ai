@@ -1,7 +1,7 @@
 # Coco.ai: twelve-slide written midterm structure
 
-No slides created. This edits the user's draft, fixes duplicate slide numbering,
-uses the actual Plause feedback, and maps every professor prompt to a slide.
+Slide-by-slide research narrative and speaker notes for the midterm presentation.
+[Google Slides deck](https://docs.google.com/presentation/d/16yxMeZ2Dwdd8IzQ9tnGfU3xiDa9a28AADcd5fszQ4rA).
 Planned narration: 7 minutes 40 seconds, leaving 20 seconds within an eight-minute slot.
 The code/source checks are complete; independent and commercial validation remain gaps.
 
@@ -186,7 +186,7 @@ development worth investigating. It does not mean an imminent equipment purchase
 These are responses in this presentation; I am not claiming newly supplied
 feedback caused all the earlier research.”
 
-Footer: User-provided Plause feedback screenshot.
+Footer: Plause peer feedback.
 
 ## Slide 11 — What will it take to validate the idea? — 45 seconds
 
@@ -212,37 +212,13 @@ Footer: Coco.ai proposed validation plan; not completed customer interviews or d
 ## Slide 12 — Thank you — 10 seconds
 
 On slide: Thank you / What information would change a supplier's next call?
-Repository link or QR when slides are built.
+Repository link for discussion and reproducibility.
 
 Speaker notes: “We have working research code and inspectable evidence. Useful
 sales intelligence is still the hypothesis to validate. I welcome feedback on
 which supplier decision we should test next.”
 
 Footer: github.com/snehal-jindal/alt.data_coco.ai.
-
-## Professor-requirement mapping
-
-| Prompt | Coverage |
-|---|---|
-| Original goals, problem, intended impact | Slide 1; customer and original alternative-data decision |
-| Progress, milestones, major challenges | Slides 2–6; collection, cleaning, historical issue, dated pilot and replay |
-| Customer discovery | Slide 9 explicitly not conducted; slide 11 states interview purpose |
-| Data collection and preparation | Slides 2–5; APIs, IDs, duplicates, invalid dates, curated facts |
-| Missing data, bias, limited availability and responses | Slides 3–4 and 7–8; edits, small selected sample, date proxies, unknown outcomes |
-| Models/algorithms/analytical methods | Slides 5–6; written rules and disclosure-date replay, no trained model |
-| BASELINE details | Slide 5 broad DC-mention filter; slide 7 dated industry-news comparator |
-| Techniques and preliminary results | Slides 5–8; screening outputs, updates, lead days and outcome evidence |
-| Evaluation metrics explained | Slide 7 notice days and difference vs news; slide 8 physical-outcome coverage, unknowns |
-| Plause feedback and response | Slide 10; actual attached comments |
-| Next tasks, experiments, improvements/deployment | Slide 11; original-date verification, outcomes, unseen cases, seller/workflow validation |
-| Risks and mitigations/alternatives | Slides 3–4, 8–9 and 11; including commercial relevance and potential pivot |
-
-The screenshot lists accuracy, F1, RMSE and AUC as examples. They are not all
-required, and current construction labels do not support them. Future precision
-would count confirmed physical progress among resolved alerts, with unknowns
-reported separately; recall requires a sufficiently complete comparison universe.
-Do not present the older AI-assisted description audit as independent test accuracy.
-Seventeen repository integrity checks pass; they do not establish commercial validity.
 
 ## Full source URLs
 
