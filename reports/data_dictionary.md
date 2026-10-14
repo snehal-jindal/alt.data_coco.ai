@@ -32,3 +32,25 @@ number ordering. Neither is a representative project cohort or an outcome test.
 Cleaning retains raw files. Conflicting cross-feed records are reported.
 Issued-feed rows receive precedence when present. Duplicate address rows at the
 same permit GUID do not become independent observations.
+# Midterm qualification additions, October 14
+
+The current task and source/date interpretation are defined in
+`midterm_scope.md` and `midterm_walkthrough.md`. The following files derive from
+the 407-row, 2023–2025 commercial-building cohort:
+
+- `qualification_annotations.csv`: initial AI-assisted desk labels (`positive`,
+  `negative`, `unknown`), reasons and exact source evidence; human review pending.
+- `qualification_predictions.csv`: one row per permit, baseline decision and
+  rule decision (`qualified`, `out_of_scope`, `review`), with rule explanation.
+- `qualified_filings.csv` and `review_queue.csv`: subsets of those predictions,
+  not verified live leads or distinct building counts.
+- `qualification_comparison.csv`: decisions joined to desk labels for auditing.
+- `qualification_errors.csv`: false alerts, desk positives not auto-qualified,
+  and any unresolved desk labels assigned a non-review decision.
+- `qualification_metrics.json`: internal agreement metrics and application-year
+  breakdown, source/annotation/rule hashes, and evaluation limitations.
+
+`application_day_local` is the application date in America/New_York, not the
+original-publication date. `parcel_pin` is one representative association per
+permit. Multiple associations are retained in `audit_summary.json` under
+`multi_parcel_permits`. No supplier-selection or purchasing outcome is present.

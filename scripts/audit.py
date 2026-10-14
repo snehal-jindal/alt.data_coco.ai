@@ -68,6 +68,7 @@ def main():
     write_csv('plans.csv', plan_rows)
 
     permits = {}
+    parcels_seen = {}
     conflicts_permits = []
     for file in ('issued_dc.json', 'submitted_dc.json', 'issued_parcel_followup.json', 'submitted_parcel_followup.json'):
         if not (RAW / file).exists():
@@ -75,6 +76,8 @@ def main():
         payload = load(file)
         for r in payload['records']:
             key = r['PermitGUID']
+            if r['ParcelPIN']:
+                parcels_seen.setdefault(key, set()).add(r['ParcelPIN'])
             clean = {
                 'permit_guid': key, 'permit_number': r['PermitNumber'],
                 'parcel_pin': r['ParcelPIN'], 'house_number': r['ADDRESSLINE1'], 'city': r['CITY'],
@@ -114,7 +117,9 @@ def main():
         'plan_duplicate_rows': len(plans['records']) - len(plan_rows),
         'plan_conflicting_guids': sorted(set(conflicts)),
         'unique_parcel_associated_permits': len(rows), 'explicit_dc_keyword_permits': len(keywords),
+        'queried_seed_parcels': len({r['ParcelPIN'] for file in ('issued_dc.json','submitted_dc.json') for r in load(file)['records'] if r['ParcelPIN']}),
         'parcels_with_dc_keyword': len({r['parcel_pin'] for r in keywords if r['parcel_pin']}),
+        'multi_parcel_permits': {k: sorted(v) for k,v in sorted(parcels_seen.items()) if len(v)>1},
         'mechanical_permits_at_seed_parcels': len(mechanical),
         'mechanical_with_dc_keyword': sum(r['dc_keyword'] for r in mechanical),
         'invalid_application_dates': sum(r['application_date_invalid'] for r in rows),
@@ -126,7 +131,7 @@ def main():
         'date_ranges': ranges,
         'rfq_labels': 0, 'verified_historical_publication_dates': 0,
         'predictive_backtest_ready': False,
-        'warning': 'Current snapshots. Parcel association is not building-level matching. Permit events are not purchases.',
+        'warning': 'Current snapshots. One representative parcel is retained per permit; multi-parcel mappings are reported separately. Parcel association is not building-level matching. Permit events are not purchases.',
     }
     # Stable chronological examples for manual audit, not an outcome-selected
     # evaluation cohort. Do not treat these ten records as ten unique projects.

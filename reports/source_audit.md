@@ -14,7 +14,8 @@ No customer interviews or predictive results have been added.
 | Planning applications mentioning data centers | 510 | Applications, not distinct projects. Includes several administrative types. |
 | Keyword permit rows across issued/submitted feeds | 1,345 | Raw rows, including repeated permit IDs. |
 | Distinct permits explicitly mentioning data centers | 1,167 | Deduplicated by county PermitGUID. |
-| Parcels identified by those descriptions | 140 | Current seed universe, not a historical cohort. |
+| Parcels queried from the original keyword rows | 160 | Includes multiple parcel associations for some permit IDs; current seed, not historical universe. |
+| Representative parcels on cleaned keyword permit rows | 140 | One representative parcel retained per permit after deduplication; not the original query count. |
 | Parcel follow-up raw rows | 7,570 | All permit types at the seed parcels. |
 | Distinct parcel-associated permits after deduplication | 6,858 | Includes unrelated, older and residential activity. |
 | Mechanical permits at seed parcels | 454 | Candidate records, not 454 verified cooling opportunities. |
@@ -27,6 +28,11 @@ No customer interviews or predictive results have been added.
 All server row counts reconcile with downloaded pagination. Planning GUIDs
 are unique in this extraction. No compared cross-feed status/date/description
 conflicts were found. Repeated address rows do exist within permit feeds.
+The October 14 follow-up audit corrected an earlier conflation of seed parcels
+with representative parcel IDs: 160 were queried, rather than 140. Sixty-one
+permit IDs have multiple parcel associations. Their mappings are retained in
+`audit_summary.json`; the one-row-per-permit table uses a representative parcel.
+No claim of complete building-level or parcel-level matching is made.
 
 ## Three concrete observations
 

@@ -1,0 +1,238 @@
+{
+  "task": "New physical DC-building filing qualification",
+  "evaluation_type": "Internal agreement audit; AI-assisted labels; rules and labels share a researcher; NOT blind or independent test performance",
+  "statistical_training": false,
+  "independent_test_set": false,
+  "geography": "Loudoun County, Virginia",
+  "application_years": [
+    2023,
+    2024,
+    2025
+  ],
+  "text_retrieval_date_utc": "2026-10-13",
+  "source_input_sha256": "ae8e217124ee36796ccf83dccfc702a40f86ce6302b11d63adb82ccaf4cb9e96",
+  "annotation_sha256": "61a643b543fbd14ff7134d6438d73b2d7c3b9503b5ecba90c60667b9cc40bc23",
+  "rules_sha256": "699c89163381d72964b631c8ef92b350efe6942f10f6b3aa2552bcc514437353",
+  "cohort_parcels": 93,
+  "all_years": {
+    "baseline": {
+      "filings": 407,
+      "desk_labels": {
+        "negative": 310,
+        "unknown": 68,
+        "positive": 29
+      },
+      "qualified_filings": 57,
+      "true_positives": 29,
+      "false_positives": 17,
+      "missed_desk_positives": 0,
+      "precision_on_resolved_labels": 0.6304347826086957,
+      "recall_on_desk_positives": 1.0,
+      "f1_on_resolved_labels": 0.7733333333333333,
+      "qualified_but_unknown_label": 11,
+      "desk_positive_share_of_entire_qualified_queue": 0.5087719298245614,
+      "review_filings": 0,
+      "desk_positives_in_review": 0,
+      "desk_negatives_in_review": 0,
+      "unknown_labels_rejected": 57,
+      "decisions": {
+        "out_of_scope": 350,
+        "qualified": 57
+      }
+    },
+    "rules": {
+      "filings": 407,
+      "desk_labels": {
+        "negative": 310,
+        "unknown": 68,
+        "positive": 29
+      },
+      "qualified_filings": 32,
+      "true_positives": 28,
+      "false_positives": 4,
+      "missed_desk_positives": 1,
+      "precision_on_resolved_labels": 0.875,
+      "recall_on_desk_positives": 0.9655172413793104,
+      "f1_on_resolved_labels": 0.9180327868852458,
+      "qualified_but_unknown_label": 0,
+      "desk_positive_share_of_entire_qualified_queue": 0.875,
+      "review_filings": 80,
+      "desk_positives_in_review": 1,
+      "desk_negatives_in_review": 11,
+      "unknown_labels_rejected": 0,
+      "decisions": {
+        "out_of_scope": 295,
+        "review": 80,
+        "qualified": 32
+      }
+    }
+  },
+  "by_application_year": {
+    "2023": {
+      "baseline": {
+        "filings": 65,
+        "desk_labels": {
+          "negative": 55,
+          "unknown": 6,
+          "positive": 4
+        },
+        "qualified_filings": 8,
+        "true_positives": 4,
+        "false_positives": 2,
+        "missed_desk_positives": 0,
+        "precision_on_resolved_labels": 0.6666666666666666,
+        "recall_on_desk_positives": 1.0,
+        "f1_on_resolved_labels": 0.8,
+        "qualified_but_unknown_label": 2,
+        "desk_positive_share_of_entire_qualified_queue": 0.5,
+        "review_filings": 0,
+        "desk_positives_in_review": 0,
+        "desk_negatives_in_review": 0,
+        "unknown_labels_rejected": 4,
+        "decisions": {
+          "out_of_scope": 57,
+          "qualified": 8
+        }
+      },
+      "rules": {
+        "filings": 65,
+        "desk_labels": {
+          "negative": 55,
+          "unknown": 6,
+          "positive": 4
+        },
+        "qualified_filings": 4,
+        "true_positives": 4,
+        "false_positives": 0,
+        "missed_desk_positives": 0,
+        "precision_on_resolved_labels": 1.0,
+        "recall_on_desk_positives": 1.0,
+        "f1_on_resolved_labels": 1.0,
+        "qualified_but_unknown_label": 0,
+        "desk_positive_share_of_entire_qualified_queue": 1.0,
+        "review_filings": 6,
+        "desk_positives_in_review": 0,
+        "desk_negatives_in_review": 0,
+        "unknown_labels_rejected": 0,
+        "decisions": {
+          "out_of_scope": 55,
+          "review": 6,
+          "qualified": 4
+        }
+      }
+    },
+    "2024": {
+      "baseline": {
+        "filings": 180,
+        "desk_labels": {
+          "positive": 15,
+          "negative": 138,
+          "unknown": 27
+        },
+        "qualified_filings": 31,
+        "true_positives": 15,
+        "false_positives": 13,
+        "missed_desk_positives": 0,
+        "precision_on_resolved_labels": 0.5357142857142857,
+        "recall_on_desk_positives": 1.0,
+        "f1_on_resolved_labels": 0.6976744186046512,
+        "qualified_but_unknown_label": 3,
+        "desk_positive_share_of_entire_qualified_queue": 0.4838709677419355,
+        "review_filings": 0,
+        "desk_positives_in_review": 0,
+        "desk_negatives_in_review": 0,
+        "unknown_labels_rejected": 24,
+        "decisions": {
+          "qualified": 31,
+          "out_of_scope": 149
+        }
+      },
+      "rules": {
+        "filings": 180,
+        "desk_labels": {
+          "positive": 15,
+          "negative": 138,
+          "unknown": 27
+        },
+        "qualified_filings": 15,
+        "true_positives": 14,
+        "false_positives": 1,
+        "missed_desk_positives": 1,
+        "precision_on_resolved_labels": 0.9333333333333333,
+        "recall_on_desk_positives": 0.9333333333333333,
+        "f1_on_resolved_labels": 0.9333333333333333,
+        "qualified_but_unknown_label": 0,
+        "desk_positive_share_of_entire_qualified_queue": 0.9333333333333333,
+        "review_filings": 32,
+        "desk_positives_in_review": 1,
+        "desk_negatives_in_review": 4,
+        "unknown_labels_rejected": 0,
+        "decisions": {
+          "qualified": 15,
+          "out_of_scope": 133,
+          "review": 32
+        }
+      }
+    },
+    "2025": {
+      "baseline": {
+        "filings": 162,
+        "desk_labels": {
+          "negative": 117,
+          "unknown": 35,
+          "positive": 10
+        },
+        "qualified_filings": 18,
+        "true_positives": 10,
+        "false_positives": 2,
+        "missed_desk_positives": 0,
+        "precision_on_resolved_labels": 0.8333333333333334,
+        "recall_on_desk_positives": 1.0,
+        "f1_on_resolved_labels": 0.9090909090909091,
+        "qualified_but_unknown_label": 6,
+        "desk_positive_share_of_entire_qualified_queue": 0.5555555555555556,
+        "review_filings": 0,
+        "desk_positives_in_review": 0,
+        "desk_negatives_in_review": 0,
+        "unknown_labels_rejected": 29,
+        "decisions": {
+          "out_of_scope": 144,
+          "qualified": 18
+        }
+      },
+      "rules": {
+        "filings": 162,
+        "desk_labels": {
+          "negative": 117,
+          "unknown": 35,
+          "positive": 10
+        },
+        "qualified_filings": 13,
+        "true_positives": 10,
+        "false_positives": 3,
+        "missed_desk_positives": 0,
+        "precision_on_resolved_labels": 0.7692307692307693,
+        "recall_on_desk_positives": 1.0,
+        "f1_on_resolved_labels": 0.8695652173913044,
+        "qualified_but_unknown_label": 0,
+        "desk_positive_share_of_entire_qualified_queue": 0.7692307692307693,
+        "review_filings": 42,
+        "desk_positives_in_review": 0,
+        "desk_negatives_in_review": 7,
+        "unknown_labels_rejected": 0,
+        "decisions": {
+          "out_of_scope": 107,
+          "review": 42,
+          "qualified": 13
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Selected DC-associated parcels, not countywide discovery evaluation",
+    "Current edited descriptions, not historical initial-publication versions",
+    "AI-assisted labels need independent construction/seller review",
+    "Repeated campus/phase records are correlated",
+    "No RFQ, buying probability, lead-time, sales conversion or competitor benchmark"
+  ]
+}
