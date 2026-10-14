@@ -1,0 +1,28 @@
+{
+  "checked_as_of": "2026-10-14",
+  "shortlisted_projects_checked": 3,
+  "physical_construction_outcomes_resolved": 0,
+  "completion_outcomes_resolved": 0,
+  "planning_or_contractor_evidence": [
+    {
+      "project": "Belmont Innovation Campus",
+      "evidence": "Finishing and sealants scope reported by Sparkle Painting",
+      "limit": "Edited post with relative time only; engagement is not verified physical construction or completion"
+    },
+    {
+      "project": "CyrusOne Broadlands",
+      "evidence": "October 2026 bulletin continues to describe the proposal",
+      "limit": "No explicit physical construction or completion confirmation; absence of confirmation is not failure"
+    },
+    {
+      "project": "Belmont Landbay KK",
+      "evidence": "Conditional site-plan approval reported",
+      "limit": "Conditional approval is not pooled with full approval and does not prove construction"
+    }
+  ],
+  "signal_precision": null,
+  "signal_recall": null,
+  "completion_success_rate": null,
+  "conclusion": "Physical-outcome quality remains unvalidated. Zero resolved outcomes is evidence coverage, NOT zero successful projects.",
+  "next_test": "Obtain matched dated contractor/developer construction evidence or official completion/occupancy records, follow shortlisted and comparison candidates to the same cutoff, retain unresolved cases, then estimate quality with sample size and uncertainty."
+}

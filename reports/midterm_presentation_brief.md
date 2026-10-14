@@ -1,5 +1,9 @@
 # Midterm speaking brief: Coco.ai
 
+Earlier six-minute version retained as background. The current eight-minute,
+twelve-slide structure with actual Plause feedback and physical-outcome follow-up
+is `midterm_slide_structure.md`. Use that file for the upcoming presentation.
+
 No slides created. Target: approximately six minutes of speaking, then questions.
 Use this narrative as the basis for a later deck. The full understanding notes
 are in `midterm_walkthrough.md`; do not try to read that entire report aloud.

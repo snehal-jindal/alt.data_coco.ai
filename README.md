@@ -31,8 +31,9 @@ Filtering is implemented; incremental discovery timing and sales value are unpro
 ## Read first
 
 - [Plain-English explanation](reports/midterm_walkthrough.md): complete current story.
-- [Presentation brief](reports/midterm_presentation_brief.md): six-minute narrative,
-  requirement mapping and honest answers for questions; no slide deck created.
+- [Current presentation structure](reports/midterm_slide_structure.md): twelve
+  slides for eight minutes, speaker notes, sources and professor-requirement mapping;
+  no slide deck created. The earlier six-minute brief is retained as background.
 - [Source register](data/curated/dated_sources.csv): links, dates and their limits.
 - [Results](data/processed/early_notice_summary.json): reproducible numbers.
 
@@ -41,6 +42,8 @@ Filtering is implemented; incremental discovery timing and sales value are unpro
 Python 3.12+, standard library only:
 
     python scripts/analyze_early_notice.py
+    python scripts/replay_watchlist.py
+    python scripts/audit_signal_quality.py
     python -m unittest discover -s tests -v
 
 Inputs are AI-assisted manual fact extractions in data/curated/. They are NOT an
@@ -52,7 +55,19 @@ There is no statistical training or untouched test set. Publisher-stated issue
 dates are historical-availability proxies; original delivery/posting timestamps
 and first versions have not been independently verified. Original document bytes
 could not be downloaded from this environment and are not archived here.
-Eleven code/data checks pass; that does not validate commercial performance.
+Seventeen code/data checks pass; that does not validate commercial performance.
+
+## Additional midterm checks
+
+The disclosure-date replay changes Belmont from investigate to review of the
+revised proposal to approval reported. It uses the date of the reporting document,
+not an earlier vote date the document describes. Repeated notices are not new discoveries.
+
+Physical-outcome follow-up now covers all three investigation items. Belmont has
+a contractor-reported scope, Landbay KK has reported conditional site-plan approval,
+and CyrusOne remains a described proposal in recovered sources. No construction
+start or completion is independently verified. That is unresolved evidence, not
+zero successful projects. Conditional approval is not pooled with full approval.
 
 ## What remains
 

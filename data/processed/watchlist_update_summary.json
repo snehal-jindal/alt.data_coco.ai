@@ -1,0 +1,48 @@
+{
+  "as_of": "2024-04-11",
+  "type": "Workflow replay using recovered document dates; availability assumptions persist",
+  "observations": 10,
+  "undated_sources_excluded": [
+    {
+      "source_id": "permits_2025_07_01_15",
+      "reason": "No recovered document date; event date alone cannot time an alert"
+    }
+  ],
+  "belmont_updates": [
+    {
+      "evidence_document_date": "2023-02-08",
+      "reported_event_dates": "2023-02-08",
+      "action_after_document": "investigate",
+      "changed": "True"
+    },
+    {
+      "evidence_document_date": "2024-01-08",
+      "reported_event_dates": "2024-01-08",
+      "action_after_document": "investigate",
+      "changed": "False"
+    },
+    {
+      "evidence_document_date": "2024-01-26",
+      "reported_event_dates": "2024-01-26",
+      "action_after_document": "investigate",
+      "changed": "False"
+    },
+    {
+      "evidence_document_date": "2024-03-22",
+      "reported_event_dates": "2024-03-13;2024-03-19",
+      "action_after_document": "review_revised_proposal",
+      "changed": "True"
+    },
+    {
+      "evidence_document_date": "2024-04-11",
+      "reported_event_dates": "2024-04-10",
+      "action_after_document": "later_stage",
+      "changed": "True"
+    }
+  ],
+  "limitations": [
+    "Manually curated evidence, not automated document ingestion",
+    "Last recovered state is not a verified live project status",
+    "No claim of sales lift, first discovery, independent prediction performance or DC Byte superiority"
+  ]
+}

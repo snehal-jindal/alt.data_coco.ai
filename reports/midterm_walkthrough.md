@@ -1,5 +1,41 @@
 # Coco.ai: the current project, explained from beginning to end
 
+## Refinement for the eight-minute presentation
+
+The current written slide structure is `midterm_slide_structure.md`, using the
+user's draft, professor screenshots and actual Plause feedback.
+
+Two further checks were implemented. `replay_watchlist.py` processes recovered
+documents in disclosure-date order. Belmont remains investigate through the
+pending notices, changes to review of the revised proposal on the March 22 release,
+and becomes approval reported on April 11. The earlier April 10 vote is not used
+before its recovered reporting document. Repeated pending notices are not new
+discoveries. This is a workflow demonstration under publisher-date assumptions,
+not proof of commercial value or a new independent backtest.
+
+`audit_signal_quality.py` separately checks physical-outcome evidence for all three
+shortlisted projects through the October 14, 2026 research check. Belmont has a
+contractor-reported finishing/sealants scope but no exact verified construction
+date or completion. A November 3, 2025 supervisor newsletter reports Landbay KK's
+October 6 conditional site-plan approval; this is separate from full approval and
+construction. An October 11, 2026 Broad Run bulletin continues to describe CyrusOne's
+proposal without confirming physical construction. None has a resolved physical
+start/completion outcome under our verification standard. This is evidence
+coverage, not a zero success rate; the projects may have progressed beyond what
+our recovered sources establish. See `quality_followup.csv` and `signal_quality_audit.json`.
+
+Signal earliness and physical-outcome quality are different tests. To complete the
+quality test, match each candidate to dated developer/contractor construction
+evidence or official completion/occupancy evidence, independently review those
+matches, and follow shortlisted AND comparison candidates to the same cutoff.
+Unknown outcomes remain unknown. Only then estimate precision/recall with a
+defined outcome, sample size and uncertainty. Sales usefulness additionally needs
+customer discovery and a comparison with the seller's existing workflow.
+
+Seventeen repository checks now pass. Older sections below preserve the first
+timing pilot's findings; the two missing full-approval dates do not imply we have
+no later planning evidence, since Landbay KK conditional approval was recovered.
+
 Updated October 14, 2026. This is the main midterm reference. The earlier
 407-permit description-classification exercise is retained separately in
 `qualification_walkthrough.md`; it does not establish early-warning performance.
@@ -183,7 +219,7 @@ for a construction start or purchase.
 Implemented: transparent alert logic, issue-era source facts, an investigation
 queue, review/later-stage routing, signed notice-time calculations, a news
 comparison, explicit missing outcomes, source provenance and reproducibility.
-Eleven automated integrity/metric checks pass across the repository.
+Seventeen automated integrity/metric checks pass across the repository after the refinements.
 
 Not established: predictive accuracy, countywide coverage, independent label
 validity, actual historical delivery timestamps, supplier-selection timing,

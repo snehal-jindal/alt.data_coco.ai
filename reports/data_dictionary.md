@@ -34,6 +34,13 @@ Issued-feed rows receive precedence when present. Duplicate address rows at the
 same permit GUID do not become independent observations.
 # Midterm qualification additions, October 14
 
+Further current outputs: `watchlist_update_replay.csv` and
+`watchlist_update_summary.json` record changes only on recovered document dates.
+`quality_followup.csv` is a separate, manually researched three-project physical-
+outcome audit. `signal_quality_audit.json` reports unresolved coverage and keeps
+accuracy metrics null. Contractor engagement, conditional approval, physical
+construction and completed construction are not interchangeable labels.
+
 These qualification files describe supporting background work. The current
 dated-document inputs are `data/curated/dated_projects.csv`, `dated_events.csv`
 and `dated_sources.csv`. They contain manual source-fact extractions, separate
